@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<EmBitz_project_file>
+	<EmBitzVersion release="1.11" revision="0" />
+	<FileVersion major="1" minor="0" />
+	<Project>
+		<Option title="locm_test" />
+		<Option pch_mode="2" />
+		<Option compiler="armgcc_eb" />
+		<Build>
+			<Target title="Debug">
+				<Option output="output\bin\Debug\locm_tect.elf" />
+				<Option object_output="output\obj\Debug\" />
+				<Option type="0" />
+				<Option compiler="armgcc_eb" />
+				<Option projectDeviceOptionsRelation="0" />
+				<Compiler>
+					<Add option="-g3" />
+					<Add option="-O0" />
+					<Add option="-Wall" />
+					<Add option="-fdata-sections" />
+					<Add option="-ffunction-sections" />
+				</Compiler>
+				<Cpp>
+					<Add option="-g3" />
+					<Add option="-O0" />
+					<Add option="-Wall" />
+					<Add option="-fdata-sections" />
+					<Add option="-ffunction-sections" />
+				</Cpp>
+				<Assembler>
+					<Add option="-Wa,--gdwarf-2" />
+				</Assembler>
+				<Linker>
+					<Add option="-Wl,--gc-sections" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="output\bin\Release\locm_test.elf" />
+				<Option object_output="output\obj\Release\" />
+				<Option type="0" />
+				<Option create_hex="1" />
+				<Option compiler="armgcc_eb" />
+				<Option projectDeviceOptionsRelation="0" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-g2" />
+					<Add option="-fdata-sections" />
+					<Add option="-ffunction-sections" />
+				</Compiler>
+				<Cpp>
+					<Add option="-O2" />
+					<Add option="-g2" />
+					<Add option="-fdata-sections" />
+					<Add option="-ffunction-sections" />
+				</Cpp>
+				<Assembler>
+					<Add option="-Wa,--no-warn" />
+				</Assembler>
+				<Linker>
+					<Add option="-Wl,--gc-sections" />
+				</Linker>
+			</Target>
+		</Build>
+		<Device>
+			<Add option="$device=cortex-m3" />
+			<Add option="$lscript=./startup/stm32f103c8_flash.ld" />
+			<Add option="$stack=0x0100" />
+			<Add option="$heap=0x0400" />
+		</Device>
+		<Compiler>
+			<Add option="-mfloat-abi=soft" />
+			<Add option="-fno-strict-aliasing" />
+			<Add symbol="STM32F103C8" />
+			<Add symbol="STM32F10X_MD" />
+			<Add symbol="STM32F1" />
+			<Add directory="..\libopencm3\include" />
+		</Compiler>
+		<Linker>
+			<Add option="-eb_lib=n" />
+			<Add option="-eb_start_files" />
+		</Linker>
+		<Unit filename="..\FreeRTOS-Kernel\croutine.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\FreeRTOS-Kernel\event_groups.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\FreeRTOS-Kernel\include\atomic.h" />
+		<Unit filename="..\FreeRTOS-Kernel\include\croutine.h" />
+		<Unit filename="..\FreeRTOS-Kernel\include\deprecated_definitions.h" />
+		<Unit filename="..\FreeRTOS-Kernel\include\event_groups.h" />
+		<Unit filename="..\FreeRTOS-Kernel\include\FreeRTOS.h" />
+		<Unit filename="..\FreeRTOS-Kernel\include\list.h" />
+		<Unit filename="..\FreeRTOS-Kernel\include\message_buffer.h" />
+		<Unit filename="..\FreeRTOS-Kernel\include\portable.h" />
+		<Unit filename="..\FreeRTOS-Kernel\include\projdefs.h" />
+		<Unit filename="..\FreeRTOS-Kernel\include\queue.h" />
+		<Unit filename="..\FreeRTOS-Kernel\include\semphr.h" />
+		<Unit filename="..\FreeRTOS-Kernel\include\stack_macros.h" />
+		<Unit filename="..\FreeRTOS-Kernel\include\StackMacros.h" />
+		<Unit filename="..\FreeRTOS-Kernel\include\stream_buffer.h" />
+		<Unit filename="..\FreeRTOS-Kernel\include\task.h" />
+		<Unit filename="..\FreeRTOS-Kernel\include\timers.h" />
+		<Unit filename="..\FreeRTOS-Kernel\list.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\FreeRTOS-Kernel\portable\GCC\ARM_CM3\port.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\FreeRTOS-Kernel\portable\GCC\ARM_CM3\portmacro.h" />
+		<Unit filename="..\FreeRTOS-Kernel\portable\MemMang\heap_1.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\FreeRTOS-Kernel\queue.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\FreeRTOS-Kernel\stream_buffer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\FreeRTOS-Kernel\tasks.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\FreeRTOS-Kernel\timers.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\libopencm3\lib\cm3\assert.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\libopencm3\lib\cm3\dwt.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\libopencm3\lib\cm3\nvic.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\libopencm3\lib\cm3\scb.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\libopencm3\lib\cm3\sync.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\libopencm3\lib\cm3\systick.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\libopencm3\lib\cm3\vector.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\libopencm3\lib\stm32\common\adc_common_v1.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\libopencm3\lib\stm32\common\crc_common_all.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\libopencm3\lib\stm32\common\dac_common_all.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\libopencm3\lib\stm32\common\dma_common_l1f013.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\libopencm3\lib\stm32\common\exti_common_all.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\libopencm3\lib\stm32\common\flash_common_all.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\libopencm3\lib\stm32\common\flash_common_f01.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\libopencm3\lib\stm32\common\gpio_common_all.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\libopencm3\lib\stm32\common\i2c_common_v1.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\libopencm3\lib\stm32\common\iwdg_common_all.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\libopencm3\lib\stm32\common\pwr_common_v1.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\libopencm3\lib\stm32\common\rcc_common_all.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\libopencm3\lib\stm32\common\spi_common_all.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\libopencm3\lib\stm32\common\spi_common_v1.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\libopencm3\lib\stm32\common\timer_common_all.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\libopencm3\lib\stm32\common\usart_common_all.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\libopencm3\lib\stm32\common\usart_common_f124.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\libopencm3\lib\stm32\f1\adc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\libopencm3\lib\stm32\f1\flash.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\libopencm3\lib\stm32\f1\gpio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\libopencm3\lib\stm32\f1\i2c.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\libopencm3\lib\stm32\f1\rcc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\libopencm3\lib\stm32\f1\rtc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\libopencm3\lib\stm32\f1\timer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="inc\defs.h" />
+		<Unit filename="inc\FreeRTOSConfig.h" />
+		<Unit filename="inc\stm32f10x.h" />
+		<Unit filename="inc\system_stm32f10x.h" />
+		<Unit filename="libs\usart\usart.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs\usart\usart.h" />
+		<Unit filename="pastabos.txt" />
+		<Unit filename="src\main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src\system_stm32f10x.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src\tasks\task1.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src\tasks\task2.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src\tasks\task3.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src\tasks\utasks.h" />
+		<Unit filename="startup\startup_stm32f10x_md.S">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sysinit\mcuinit.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sysinit\mcuinit.h" />
+		<Extensions>
+			<code_completion />
+			<debugger>
+				<target_debugging_settings target="Release" active_interface="ST-link">
+					<debug_interface interface_id="ST-link" ip_address="localhost" ip_port="4242" path="${EMBITZ}\share\contrib" executable="STLinkGDB.exe" description="" dont_start_server="false" backoff_time="1000" options="2" reg_filter="0" active_family="STMicroelectronics" gdb_before_conn="" gdb_after_conn="">
+						<family_options family_id="STMicroelectronics">
+							<option opt_id="ID_JTAG_SWD" opt_value="swd" />
+							<option opt_id="ID_VECTOR_START" opt_value="0x08000000" />
+							<option opt_id="ID_RESET_TYPE" opt_value="System" />
+							<option opt_id="ID_LOAD_PROGRAM" opt_value="1" />
+							<option opt_id="ID_SEMIHOST_CHECK" opt_value="0" />
+							<option opt_id="ID_RAM_EXEC" opt_value="0" />
+							<option opt_id="ID_VEC_TABLE" opt_value="1" />
+							<option opt_id="ID_DONT_CONN_RESET" opt_value="0" />
+							<option opt_id="ID_ALL_MODE_DEBUG" opt_value="0" />
+							<option opt_id="ID_DEV_ADDR" opt_value="" />
+							<option opt_id="ID_VERBOSE_LEVEL" opt_value="3" />
+						</family_options>
+					</debug_interface>
+				</target_debugging_settings>
+				<target_debugging_settings target="Debug" active_interface="ST-link">
+					<debug_interface interface_id="ST-link" ip_address="localhost" ip_port="4242" path="${EMBITZ}\share\contrib" executable="STLinkGDB.exe" description="" dont_start_server="false" backoff_time="1000" options="2" reg_filter="0" active_family="STMicroelectronics" gdb_before_conn="" gdb_after_conn="">
+						<family_options family_id="STMicroelectronics">
+							<option opt_id="ID_JTAG_SWD" opt_value="swd" />
+							<option opt_id="ID_VECTOR_START" opt_value="0x08000000" />
+							<option opt_id="ID_RESET_TYPE" opt_value="System" />
+							<option opt_id="ID_LOAD_PROGRAM" opt_value="1" />
+							<option opt_id="ID_SEMIHOST_CHECK" opt_value="0" />
+							<option opt_id="ID_RAM_EXEC" opt_value="0" />
+							<option opt_id="ID_VEC_TABLE" opt_value="1" />
+							<option opt_id="ID_DONT_CONN_RESET" opt_value="0" />
+							<option opt_id="ID_ALL_MODE_DEBUG" opt_value="0" />
+							<option opt_id="ID_DEV_ADDR" opt_value="" />
+							<option opt_id="ID_VERBOSE_LEVEL" opt_value="3" />
+						</family_options>
+					</debug_interface>
+				</target_debugging_settings>
+			</debugger>
+			<envvars />
+			<DoxyBlocks>
+				<comment_style block="0" line="0" />
+				<doxyfile_project />
+				<doxyfile_build />
+				<doxyfile_warnings />
+				<doxyfile_output />
+				<doxyfile_dot />
+				<general />
+			</DoxyBlocks>
+		</Extensions>
+	</Project>
+</EmBitz_project_file>

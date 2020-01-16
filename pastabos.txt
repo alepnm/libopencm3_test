@@ -1,0 +1,7 @@
+
+
+    /* makrosas atomarinems operacijoms (cortex.h) */
+    CM_ATOMIC_BLOCK(){
+
+
+    }
