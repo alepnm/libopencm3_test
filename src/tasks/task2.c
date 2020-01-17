@@ -4,11 +4,13 @@
 
 void task2(void *args)
 {
+    char sms[] = "Task 1\r";
+
 	(void)args;
 
 	for (;;) {
 
-		//gpio_toggle(LED1.port, LED1.pin);
+		//SendStringToQueue( PortA->TxQueue, sms);
 
 		vTaskDelay(100);
 	}

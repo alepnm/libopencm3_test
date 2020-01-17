@@ -7,7 +7,7 @@ Workspace struktura:
 	|- freemodbus 
 	|- FrrRTOS-Kernel
 	|- libopencm3
-	|- mytest1
+	|- locm_test
 	|
 	|
 	|
