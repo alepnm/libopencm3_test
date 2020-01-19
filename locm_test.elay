@@ -6,29 +6,34 @@
 			<Cursor1 position="16987" topLine="448" />
 		</Cursor>
 	</File>
-	<File name="..\FreeRTOS-Kernel\list.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="..\FreeRTOS-Kernel\list.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="6801" topLine="89" />
 		</Cursor>
 	</File>
-	<File name="..\FreeRTOS-Kernel\portable\GCC\ARM_CM3\port.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="..\FreeRTOS-Kernel\portable\GCC\ARM_CM3\port.c" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="13821" topLine="334" />
+			<Cursor1 position="15104" topLine="376" />
 		</Cursor>
 	</File>
 	<File name="..\FreeRTOS-Kernel\portable\GCC\ARM_CM3\portmacro.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="3309" topLine="78" />
+			<Cursor1 position="5421" topLine="105" />
 		</Cursor>
 	</File>
-	<File name="..\FreeRTOS-Kernel\queue.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="..\FreeRTOS-Kernel\queue.c" open="0" top="0" tabpos="20" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="45789" topLine="1229" />
+			<Cursor1 position="66840" topLine="1890" />
 		</Cursor>
 	</File>
-	<File name="..\FreeRTOS-Kernel\tasks.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="..\FreeRTOS-Kernel\tasks.c" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="72852" topLine="2022" />
+			<Cursor1 position="102835" topLine="2967" />
+		</Cursor>
+	</File>
+	<File name="..\libopencm3\lib\cm3\dwt.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1179" topLine="23" />
 		</Cursor>
 	</File>
 	<File name="..\libopencm3\lib\cm3\nvic.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -36,69 +41,182 @@
 			<Cursor1 position="0" topLine="15" />
 		</Cursor>
 	</File>
-	<File name="..\libopencm3\lib\stm32\common\usart_common_all.c" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="..\libopencm3\lib\cm3\systick.c" open="0" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4967" topLine="143" />
+		</Cursor>
+	</File>
+	<File name="..\libopencm3\lib\stm32\common\crc_common_all.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="22" />
+		</Cursor>
+	</File>
+	<File name="..\libopencm3\lib\stm32\common\gpio_common_all.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2467" topLine="92" />
+		</Cursor>
+	</File>
+	<File name="..\libopencm3\lib\stm32\common\i2c_common_v1.c" open="0" top="0" tabpos="19" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="11957" topLine="234" />
+		</Cursor>
+	</File>
+	<File name="..\libopencm3\lib\stm32\common\rcc_common_all.c" open="0" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5605" topLine="98" />
+		</Cursor>
+	</File>
+	<File name="..\libopencm3\lib\stm32\common\usart_common_all.c" open="0" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="6403" topLine="201" />
 		</Cursor>
 	</File>
-	<File name="..\libopencm3\lib\stm32\common\usart_common_f124.c" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="..\libopencm3\lib\stm32\common\usart_common_f124.c" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1467" topLine="35" />
 		</Cursor>
 	</File>
-	<File name="inc\rtos_func.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="..\libopencm3\lib\stm32\f1\i2c.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="343" topLine="0" />
+			<Cursor1 position="893" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="libs\usart\usart.c" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="..\libopencm3\lib\stm32\f1\rcc.c" open="0" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="686" topLine="48" />
+			<Cursor1 position="23639" topLine="9" />
 		</Cursor>
 	</File>
-	<File name="libs\usart\usart.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="..\libopencm3\lib\stm32\f1\rtc.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="280" topLine="0" />
+			<Cursor1 position="9080" topLine="293" />
 		</Cursor>
 	</File>
-	<File name="src\main.c" open="1" top="1" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="inc\defs.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1259" topLine="21" />
+			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\rtos_func.c" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="inc\FreeRTOSConfig.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1158" topLine="18" />
+			<Cursor1 position="6588" topLine="75" />
 		</Cursor>
 	</File>
-	<File name="src\tasks\task1.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="inc\rtos_func.h" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="295" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="inc\stm32f10x.h" open="0" top="0" tabpos="24" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="68128" topLine="8328" />
+		</Cursor>
+	</File>
+	<File name="libs\i2c\iic.c" open="1" top="1" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="9735" topLine="192" />
+		</Cursor>
+		<Folding>
+			<Collapse line="151" />
+			<Collapse line="225" />
+			<Collapse line="272" />
+			<Collapse line="308" />
+			<Collapse line="316" />
+			<Collapse line="325" />
+			<Collapse line="330" />
+			<Collapse line="335" />
+			<Collapse line="340" />
+			<Collapse line="368" />
+			<Collapse line="373" />
+			<Collapse line="378" />
+			<Collapse line="383" />
+			<Collapse line="409" />
+			<Collapse line="426" />
+			<Collapse line="430" />
+			<Collapse line="434" />
+			<Collapse line="448" />
+			<Collapse line="476" />
+			<Collapse line="502" />
+			<Collapse line="507" />
+		</Folding>
+	</File>
+	<File name="libs\i2c\iic.h" open="1" top="0" tabpos="18" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2443" topLine="54" />
+		</Cursor>
+	</File>
+	<File name="libs\rtc\rtc.c" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="592" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="libs\rtc\rtc.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="224" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="libs\systick\systick.c" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="442" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="libs\systick\systick.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="211" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="libs\usart\usart.c" open="1" top="0" tabpos="17" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4110" topLine="137" />
+		</Cursor>
+	</File>
+	<File name="libs\usart\usart.h" open="1" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="268" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\main.c" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="350" topLine="2" />
+		</Cursor>
+	</File>
+	<File name="src\rtos_func.c" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="26" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\tasks\task1.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="121" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\tasks\task2.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\tasks\task2.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="121" topLine="0" />
+			<Cursor1 position="54" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\tasks\task3.c" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\tasks\task3.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="125" topLine="0" />
+			<Cursor1 position="254" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\tasks\utasks.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\tasks\utasks.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="119" topLine="0" />
+			<Cursor1 position="77" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="startup\startup_stm32f10x_md.S" open="1" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="startup\startup_stm32f10x_md.S" open="1" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="8338" topLine="182" />
+			<Cursor1 position="8338" topLine="196" />
 		</Cursor>
 	</File>
-	<File name="sysinit\mcuinit.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="sysinit\mcuinit.c" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="270" topLine="0" />
+			<Cursor1 position="62" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="sysinit\mcuinit.h" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="69" topLine="0" />
 		</Cursor>
 	</File>
 </EmBitz_layout_file>

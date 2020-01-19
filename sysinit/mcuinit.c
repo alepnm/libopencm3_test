@@ -1,6 +1,10 @@
 
+#include <libopencm3/cm3/cortex.h>
+
 #include "mcuinit.h"
 #include "usart.h"
+#include "iic.h"
+#include "rtc.h"
 
 
 const iopin_t LED1 = { GPIOC, GPIO13 };
@@ -19,6 +23,8 @@ static void clock_setup(void)
     rcc_periph_clock_enable(RCC_USART1);
     rcc_periph_clock_enable(RCC_USART2);
     rcc_periph_clock_enable(RCC_USART3);
+
+    cm_disable_interrupts();
 }
 
 
@@ -36,8 +42,13 @@ static void gpio_setup(void)
 
 void MCU_Init(void)
 {
+
+
     clock_setup();
     gpio_setup();
-    //usart1_setup();
-    //systick_setup();
+    usart_init();
+    eep_init(eeprom);
+    rtc_init();
+
+
 }

@@ -12,6 +12,7 @@ void task3(void *args)
 
         SendStringToQueue( PortA->TxQueue, sms);
 
+        //gpio_toggle(LED1.port, LED1.pin);
 
         vTaskDelay(1000);
 	}

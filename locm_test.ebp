@@ -221,6 +221,18 @@
 		<Unit filename="inc\rtos_func.h" />
 		<Unit filename="inc\stm32f10x.h" />
 		<Unit filename="inc\system_stm32f10x.h" />
+		<Unit filename="libs\i2c\iic.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs\i2c\iic.h" />
+		<Unit filename="libs\rtc\rtc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs\rtc\rtc.h" />
+		<Unit filename="libs\systick\systick.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs\systick\systick.h" />
 		<Unit filename="libs\usart\usart.c">
 			<Option compilerVar="CC" />
 		</Unit>

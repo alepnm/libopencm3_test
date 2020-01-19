@@ -4,6 +4,8 @@
 
 uint32_t timestamp = 0;
 
+
+/*  */
 void systick_setup(void)
 {
 	/* 72MHz / 8 => 9000000 counts per second */
@@ -19,9 +21,16 @@ void systick_setup(void)
 }
 
 
+/*  */
+void systick_handler(void)
+{
+    if( systick_get_countflag() ){
+        timestamp++;
+    }
+}
 
-//void sys_tick_handler(void)
-void SysTick_Handler(void)
+/*  */
+void systick_isr_handler(void)
 {
     timestamp++;
 }

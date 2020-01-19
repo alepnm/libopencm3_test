@@ -1533,19 +1533,20 @@
 1579031283 source:c:\work\git\libopencm3_projects\libopencm3\lib\stm32\f1\timer.c
 	<libopencm3/stm32/timer.h>
 
-1579186838 source:c:\work\git\libopencm3_projects\locm_test\libs\usart\usart.c
+1579267675 source:c:\work\git\libopencm3_projects\locm_test\libs\usart\usart.c
 	<libopencm3/stm32/rcc.h>
 	<libopencm3/cm3/nvic.h>
+	<libopencm3/stm32/gpio.h>
+	<libopencm3/stm32/usart.h>
+	"usart.h"
+	"rtos_func.h"
+
+1579268194 c:\work\git\libopencm3_projects\locm_test\libs\usart\usart.h
 	<libopencm3/stm32/gpio.h>
 	<libopencm3/stm32/usart.h>
 	"FreeRTOS.h"
 	"queue.h"
 	"semphr.h"
-	"usart.h"
-
-1579182904 c:\work\git\libopencm3_projects\locm_test\libs\usart\usart.h
-	<libopencm3/stm32/gpio.h>
-	<libopencm3/stm32/usart.h>
 
 1579092162 source:c:\work\git\libopencm3_projects\locm_test\src\system_stm32f10x.c
 	"stm32f10x.h"
@@ -1558,7 +1559,7 @@
 
 1579034401 c:\work\git\libopencm3_projects\locm_test\inc\system_stm32f10x.h
 
-1579168593 source:c:\work\git\libopencm3_projects\locm_test\src\tasks\task1.c
+1579217796 source:c:\work\git\libopencm3_projects\locm_test\src\tasks\task1.c
 	"utasks.h"
 
 1579080805 c:\work\git\libopencm3_projects\locm_test\src\tasks\tasks.h
@@ -1576,12 +1577,10 @@
 
 1579079915 c:\work\git\libopencm3_projects\locm_test\inc\defs.h
 
-1579168593 source:c:\work\git\libopencm3_projects\locm_test\src\tasks\task2.c
+1579217796 source:c:\work\git\libopencm3_projects\locm_test\src\tasks\task2.c
 	"utasks.h"
 
-1579187692 source:c:\work\git\libopencm3_projects\locm_test\src\tasks\task3.c
-	"FreeRTOS.h"
-	"queue.h"
+1579217600 source:c:\work\git\libopencm3_projects\locm_test\src\tasks\task3.c
 	"utasks.h"
 
 1579068920 source:c:\work\git\libopencm3_projects\locm_test\startup\startup_stm32f10x_md.s
@@ -1590,13 +1589,14 @@
 	"mcuinit.h"
 	"usart.h"
 
-1579187921 source:c:\work\git\libopencm3_projects\locm_test\src\main.c
+1579241398 source:c:\work\git\libopencm3_projects\locm_test\src\main.c
 	<libopencm3/cm3/common.h>
 	<libopencm3/cm3/cortex.h>
 	"FreeRTOS.h"
 	"task.h"
 	"queue.h"
 	"semphr.h"
+	"rtos_func.h"
 	"utasks.h"
 	"mcuinit.h"
 	"usart.h"
@@ -1605,10 +1605,12 @@
 	<stdbool.h>
 	<stdint.h>
 
-1579168521 c:\work\git\libopencm3_projects\locm_test\src\tasks\utasks.h
+1579217600 c:\work\git\libopencm3_projects\locm_test\src\tasks\utasks.h
 	"FreeRTOS.h"
-	"task.h"
+	"queue.h"
+	"rtos_func.h"
 	"mcuinit.h"
+	"usart.h"
 
 1579075770 c:\work\git\libopencm3_projects\freertos-kernel\include\semphr.h
 	"queue.h"
@@ -1626,7 +1628,7 @@
 	"portable.h"
 	<reent.h>
 
-1579100258 d:\projects\libopencm3_projects\locm_test\inc\freertosconfig.h
+1579435278 d:\projects\libopencm3_projects\locm_test\inc\freertosconfig.h
 
 1579075770 d:\projects\libopencm3_projects\freertos-kernel\include\projdefs.h
 
@@ -1732,7 +1734,7 @@
 	"FreeRTOS.h"
 	"list.h"
 
-1579078809 source:d:\projects\libopencm3_projects\freertos-kernel\portable\gcc\arm_cm3\port.c
+1579433842 source:d:\projects\libopencm3_projects\freertos-kernel\portable\gcc\arm_cm3\port.c
 	"FreeRTOS.h"
 	"task.h"
 
@@ -3147,22 +3149,19 @@
 1579031283 source:d:\projects\libopencm3_projects\libopencm3\lib\stm32\f1\timer.c
 	<libopencm3/stm32/timer.h>
 
-1579219409 source:d:\projects\libopencm3_projects\locm_test\libs\usart\usart.c
+1579474404 source:d:\projects\libopencm3_projects\locm_test\libs\usart\usart.c
 	<libopencm3/stm32/rcc.h>
 	<libopencm3/cm3/nvic.h>
-	<libopencm3/stm32/gpio.h>
-	<libopencm3/stm32/usart.h>
 	"usart.h"
 
 1579075770 d:\projects\libopencm3_projects\freertos-kernel\include\semphr.h
 	"queue.h"
 
-1579219671 d:\projects\libopencm3_projects\locm_test\libs\usart\usart.h
+1579474404 d:\projects\libopencm3_projects\locm_test\libs\usart\usart.h
 	<libopencm3/stm32/gpio.h>
 	<libopencm3/stm32/usart.h>
 	"FreeRTOS.h"
 	"queue.h"
-	"semphr.h"
 
 1579092162 source:d:\projects\libopencm3_projects\locm_test\src\system_stm32f10x.c
 	"stm32f10x.h"
@@ -3178,19 +3177,11 @@
 1579217796 source:d:\projects\libopencm3_projects\locm_test\src\tasks\task1.c
 	"utasks.h"
 
-1579217600 d:\projects\libopencm3_projects\locm_test\src\tasks\utasks.h
+1579472801 d:\projects\libopencm3_projects\locm_test\src\tasks\utasks.h
 	"FreeRTOS.h"
-	"queue.h"
 	"rtos_func.h"
-	"mcuinit.h"
-	"usart.h"
 
-1579079964 d:\projects\libopencm3_projects\locm_test\sysinit\mcuinit.h
-	<libopencm3/stm32/rcc.h>
-	<libopencm3/stm32/gpio.h>
-	<libopencm3/stm32/usart.h>
-	<libopencm3/cm3/nvic.h>
-	<libopencm3/cm3/systick.h>
+1579472915 d:\projects\libopencm3_projects\locm_test\sysinit\mcuinit.h
 	"defs.h"
 
 1579079915 d:\projects\libopencm3_projects\locm_test\inc\defs.h
@@ -3198,37 +3189,75 @@
 1579217796 source:d:\projects\libopencm3_projects\locm_test\src\tasks\task2.c
 	"utasks.h"
 
-1579217600 source:d:\projects\libopencm3_projects\locm_test\src\tasks\task3.c
+1579466009 source:d:\projects\libopencm3_projects\locm_test\src\tasks\task3.c
 	"utasks.h"
 
 1579068920 source:d:\projects\libopencm3_projects\locm_test\startup\startup_stm32f10x_md.s
 
-1579094881 source:d:\projects\libopencm3_projects\locm_test\sysinit\mcuinit.c
+1579472948 source:d:\projects\libopencm3_projects\locm_test\sysinit\mcuinit.c
+	<libopencm3/cm3/cortex.h>
 	"mcuinit.h"
 	"usart.h"
+	"iic.h"
+	"rtc.h"
 
-1579218728 source:d:\projects\libopencm3_projects\locm_test\src\main.c
-	<libopencm3/cm3/common.h>
-	<libopencm3/cm3/cortex.h>
+1579472832 source:d:\projects\libopencm3_projects\locm_test\src\main.c
 	"FreeRTOS.h"
-	"task.h"
-	"queue.h"
-	"semphr.h"
-	"rtos_func.h"
 	"utasks.h"
 	"mcuinit.h"
-	"usart.h"
+	"rtc.h"
 
 1579031282 d:\projects\libopencm3_projects\libopencm3\include\libopencm3\cm3\cortex.h
 	<stdbool.h>
 	<stdint.h>
 
-1579218728 d:\projects\libopencm3_projects\locm_test\inc\rtos_func.h
+1579241271 d:\projects\libopencm3_projects\locm_test\inc\rtos_func.h
 	"FreeRTOS.h"
 	"queue.h"
 	"usart.h"
 
-1579219671 source:d:\projects\libopencm3_projects\locm_test\src\rtos_func.c
+1579472816 source:d:\projects\libopencm3_projects\locm_test\src\rtos_func.c
+	"rtos_func.h"
+
+1579241271 c:\work\git\libopencm3_projects\locm_test\inc\rtos_func.h
+	"FreeRTOS.h"
+	"queue.h"
+	"usart.h"
+
+1579245129 source:c:\work\git\libopencm3_projects\locm_test\src\rtos_func.c
 	"rtos_func.h"
 	"mcuinit.h"
+
+1579472996 source:d:\projects\libopencm3_projects\locm_test\libs\i2c\iic.c
+	<libopencm3/stm32/rcc.h>
+	<libopencm3/stm32/gpio.h>
+	<libopencm3/stm32/i2c.h>
+	<libopencm3/cm3/systick.h>
+	<stdlib.h>
+	"FreeRTOS.h"
+	"task.h"
+	"iic.h"
+
+1579475563 d:\projects\libopencm3_projects\locm_test\libs\i2c\iic.h
+
+1579433577 source:d:\projects\libopencm3_projects\locm_test\libs\systick\systick.c
+	"systick.h"
+
+1579443448 d:\projects\libopencm3_projects\locm_test\libs\systick\systick.h
+	<libopencm3/cm3/nvic.h>
+	<libopencm3/cm3/systick.h>
+
+1579472538 source:d:\projects\libopencm3_projects\locm_test\libs\rtc\rtc.c
+	<libopencm3/cm3/cortex.h>
+	"rtc.h"
+	"mcuinit.h"
+
+1579444863 d:\projects\libopencm3_projects\locm_test\libs\rtc\rtc.h
+	<libopencm3/stm32/rcc.h>
+	<libopencm3/stm32/gpio.h>
+	<libopencm3/cm3/nvic.h>
+	<libopencm3/stm32/rtc.h>
+	<libopencm3/stm32/f1/bkp.h>
+
+1579031282 d:\projects\libopencm3_projects\libopencm3\include\libopencm3\stm32\f1\bkp.h
 

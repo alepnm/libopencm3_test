@@ -6,7 +6,11 @@
 
 #include "FreeRTOS.h"
 #include "queue.h"
-#include "semphr.h"
+
+
+#define USART1_IRQHandler usart1_irq_handler
+#define USART2_IRQHandler usart2_irq_handler
+#define USART3_IRQHandler usart3_irq_handler
 
 
 #define PRIMARY_PORT    0
@@ -14,7 +18,6 @@
 
 #define RX_BUFFER_SIZE  256
 #define RX_TIMEOUT  100
-
 
 typedef struct{
     uint32_t        usart;
@@ -32,6 +35,7 @@ extern usart_port_t* PortC;
 
 void    usart_init(void);
 uint8_t usart_config( uint8_t port, uint32_t baudrate, uint8_t databits, uint32_t parity );
-void    usart_send_it(uint8_t port, char* data);
+void    usart_port_handler( usart_port_t* port );
+void    usart_porttimer_handler( usart_port_t* port );
 
 #endif /* USART_H_INCLUDED */

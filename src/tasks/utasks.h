@@ -2,11 +2,7 @@
 #define TASKS_H_INCLUDED
 
 #include "FreeRTOS.h"
-#include "queue.h"
 #include "rtos_func.h"
-
-#include "mcuinit.h"
-#include "usart.h"
 
 
 
