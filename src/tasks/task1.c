@@ -4,7 +4,7 @@
 
 void task1(void *args)
 {
-    char sms[] = "Task 2\r";
+    char sms[] __attribute__((unused)) = "Task 2\r";
 
 	(void)args;
 

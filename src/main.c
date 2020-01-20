@@ -13,14 +13,17 @@
 **********************************************************************/
 
 //#include <libopencm3/cm3/common.h>
-//#include <libopencm3/cm3/cortex.h>
+#include <libopencm3/cm3/cortex.h>
 
 /* FreeRTOS includes */
 #include "FreeRTOS.h"
+#include "task.h"
+#include "queue.h"
 #include "utasks.h"
 
 /* system includes */
 #include "mcuinit.h"
+#include "usart.h"
 #include "rtc.h"
 
 uint8_t eep_data[256];
@@ -38,7 +41,7 @@ void main_task(void *args)
         if( uxQueueMessagesWaiting(PortB->TxQueue) ) usart_port_handler( PortB );
 
 
-        rtc_handler();
+        rtc_process();
 
 		taskYIELD();
 	}
@@ -46,11 +49,41 @@ void main_task(void *args)
 
 
 /*  */
+void SendToQueue( QueueHandle_t que, char* data, uint8_t len ){
+
+    while(len){
+
+        while(uxQueueSpacesAvailable(que) == 0) portYIELD();
+
+        if( xQueueSend( que, data++, (TickType_t)10 ) != pdPASS )
+        {
+            /* Failed to post the message, even after 10 ticks. */
+        }
+
+        len--;
+    }
+}
+
+
+
+/*  */
+void SendStringToQueue( QueueHandle_t que, char* data ){
+
+    while(*data){
+
+        while(uxQueueSpacesAvailable(que) == 0) portYIELD();
+
+        if( xQueueSend( que, data++, (TickType_t)10 ) != pdPASS )
+        {
+            /* Failed to post the message, even after 10 ticks. */
+        }
+    }
+}
+
+/*  */
 int main(void)
 {
-
     MCU_Init();
-
 
     xTaskCreate(main_task, "MainTask", 100, NULL, configMAX_PRIORITIES-1, NULL);
 	xTaskCreate(task1, "Task1", 100, NULL, configMAX_PRIORITIES-1, NULL);

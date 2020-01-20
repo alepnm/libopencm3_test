@@ -3,15 +3,15 @@
 
 #include "mcuinit.h"
 #include "usart.h"
-#include "iic.h"
+#include "e24lcxx.h"
+#include "ds3107.h"
+#include "mcp.h"
 #include "rtc.h"
 
 
 const iopin_t LED1 = { GPIOC, GPIO13 };
 
-
-
-
+/*  */
 static void clock_setup(void)
 {
     rcc_clock_setup_in_hse_8mhz_out_72mhz();
@@ -23,11 +23,9 @@ static void clock_setup(void)
     rcc_periph_clock_enable(RCC_USART1);
     rcc_periph_clock_enable(RCC_USART2);
     rcc_periph_clock_enable(RCC_USART3);
-
-    cm_disable_interrupts();
 }
 
-
+/*  */
 static void gpio_setup(void)
 {
     /* Enable GPIO clock for leds. */
@@ -39,16 +37,18 @@ static void gpio_setup(void)
     gpio_set(LED1.port, LED1.pin);
 }
 
-
+/*  */
 void MCU_Init(void)
 {
 
+    cm_disable_interrupts();
 
     clock_setup();
     gpio_setup();
     usart_init();
     eep_init(eeprom);
     rtc_init();
+    mcp_init( mcp );
 
-
+    cm_enable_interrupts();
 }

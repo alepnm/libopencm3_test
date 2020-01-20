@@ -2,9 +2,13 @@
 #define TASKS_H_INCLUDED
 
 #include "FreeRTOS.h"
-#include "rtos_func.h"
+#include "queue.h"
+#include "task.h"
 
+#include "usart.h"
 
+extern void SendToQueue( QueueHandle_t que, char* data, uint8_t len );
+extern void SendStringToQueue( QueueHandle_t que, char* data );
 
 void task1(void *args);
 void task2(void *args);
