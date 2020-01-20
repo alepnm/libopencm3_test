@@ -4,7 +4,7 @@
 #include "mcuinit.h"
 #include "usart.h"
 #include "e24lcxx.h"
-#include "ds3107.h"
+#include "ds1307.h"
 #include "mcp.h"
 #include "rtc.h"
 
@@ -21,8 +21,8 @@ static void clock_setup(void)
     rcc_periph_clock_enable(RCC_GPIOC);
 
     rcc_periph_clock_enable(RCC_USART1);
-    rcc_periph_clock_enable(RCC_USART2);
-    rcc_periph_clock_enable(RCC_USART3);
+    rcc_periph_clock_disable(RCC_USART2);
+    rcc_periph_clock_disable(RCC_USART3);
 }
 
 /*  */
@@ -41,14 +41,15 @@ static void gpio_setup(void)
 void MCU_Init(void)
 {
 
-    cm_disable_interrupts();
+    //cm_disable_interrupts();
 
     clock_setup();
     gpio_setup();
     usart_init();
     eep_init(eeprom);
-    rtc_init();
-    mcp_init( mcp );
+    //rtc_init();
+    ds_init(ds1307);
+    //mcp_init( mcp );
 
-    cm_enable_interrupts();
+    //cm_enable_interrupts();
 }

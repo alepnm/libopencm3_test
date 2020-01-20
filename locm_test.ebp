@@ -220,10 +220,10 @@
 		<Unit filename="inc\FreeRTOSConfig.h" />
 		<Unit filename="inc\stm32f10x.h" />
 		<Unit filename="inc\system_stm32f10x.h" />
-		<Unit filename="libs\ds3107\ds3107.c">
+		<Unit filename="libs\ds1307\ds1307.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="libs\ds3107\ds3107.h" />
+		<Unit filename="libs\ds1307\ds1307.h" />
 		<Unit filename="libs\eeprom\e24lcxx.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -275,7 +275,7 @@
 		<Extensions>
 			<code_completion />
 			<debugger>
-				<target_debugging_settings target="Release" active_interface="ST-link">
+				<target_debugging_settings target="Debug" active_interface="ST-link">
 					<debug_interface interface_id="ST-link" ip_address="localhost" ip_port="4242" path="${EMBITZ}\share\contrib" executable="STLinkGDB.exe" description="" dont_start_server="false" backoff_time="1000" options="2" reg_filter="0" active_family="STMicroelectronics" gdb_before_conn="" gdb_after_conn="">
 						<family_options family_id="STMicroelectronics">
 							<option opt_id="ID_JTAG_SWD" opt_value="swd" />
@@ -292,7 +292,7 @@
 						</family_options>
 					</debug_interface>
 				</target_debugging_settings>
-				<target_debugging_settings target="Debug" active_interface="ST-link">
+				<target_debugging_settings target="Release" active_interface="ST-link">
 					<debug_interface interface_id="ST-link" ip_address="localhost" ip_port="4242" path="${EMBITZ}\share\contrib" executable="STLinkGDB.exe" description="" dont_start_server="false" backoff_time="1000" options="2" reg_filter="0" active_family="STMicroelectronics" gdb_before_conn="" gdb_after_conn="">
 						<family_options family_id="STMicroelectronics">
 							<option opt_id="ID_JTAG_SWD" opt_value="swd" />

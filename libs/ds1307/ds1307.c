@@ -2,13 +2,13 @@
 #include <libopencm3/stm32/gpio.h>
 #include <libopencm3/stm32/i2c.h>
 
-#include "ds3107.h"
+#include "ds1307.h"
 
-/* RTC DS3107 */
+/* RTC DS1307 */
 #define RTC_REQ_INPUT_PORT    GPIOB
 #define RTC_REQ_INPUT_PIN     GPIO0
 
-#define RTC_I2C_ADDR        (0x68>>1)
+#define RTC_I2C_ADDR        (0xD0>>1)
 
 typedef enum {
     RTC_SECONDS_REG =   0x00,
@@ -57,7 +57,7 @@ typedef enum {
 
 
 static rtc_t rtc_dev;
-rtc_t* rtc = &rtc_dev;
+rtc_t* ds1307 = &rtc_dev;
 
 
 /* RTC DS1307 funkcijos  */
@@ -173,7 +173,9 @@ int ds_init( rtc_t* dev ){
 
     (void)ds_check( dev );
 
-    if( ds_read_register( dev, RTC_INIT_REG, &temp ) != 0x55 ){
+    (void)ds_read_register( dev, RTC_INIT_REG, &temp );
+
+    if( temp != 0x55 ){
 
         (void)ds_write_register( dev, RTC_CONTROL_REG, RTC_CLOCK_HALT_BIT );
 

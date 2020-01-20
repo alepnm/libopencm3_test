@@ -102,7 +102,7 @@ int eep_write( eeprom_t* dev, uint16_t reg, uint8_t *data, uint16_t len ){
 
     if(len < bytes_to_send) bytes_to_send = len;
 
-    uint8_t pages = bytes_to_send % 8;
+    uint8_t pages = bytes_to_send / 8;
 
     while(len)
     {

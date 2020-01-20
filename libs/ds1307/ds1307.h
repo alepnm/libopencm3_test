@@ -1,5 +1,5 @@
-#ifndef DS3107_H_INCLUDED
-#define DS3107_H_INCLUDED
+#ifndef DS1307_H_INCLUDED
+#define DS1307_H_INCLUDED
 
 #include "defs.h"
 #include "iic.h"
@@ -31,11 +31,11 @@ typedef struct{
     uint8_t bkp_regs[56];
 }rtc_t;
 
-extern rtc_t* rtc;
+extern rtc_t* ds1307;
 
 int ds_init          ( rtc_t* dev );
 int ds_get_datetime  ( rtc_t* dev );
 int ds_set_datetime  ( rtc_t* dev, uint8_t year, uint8_t month, uint8_t date, uint8_t weekday, uint8_t hour, uint8_t minute, uint8_t second );
 
 
-#endif /* DS3107_H_INCLUDED */
+#endif /* DS1307_H_INCLUDED */

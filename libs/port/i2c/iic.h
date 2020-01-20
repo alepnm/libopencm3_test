@@ -12,7 +12,7 @@
 #include "defs.h"
 
 #define     IIC_DELAY_MS 5
-#define     wait()  portYIELD()
+#define     wait()  //portYIELD()
 
 //#define     I2C_REQUEST_WRITE 0
 //#define     I2C_REQUEST_READ  1

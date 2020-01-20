@@ -24,7 +24,8 @@
 /* system includes */
 #include "mcuinit.h"
 #include "usart.h"
-#include "rtc.h"
+#include "e24lcxx.h"
+#include "ds1307.h"
 
 uint8_t eep_data[256];
 
@@ -35,13 +36,16 @@ void main_task(void *args)
 	(void)args;
 
 
+    //eep_clear(eeprom);
+    eep_read( eeprom, 0, eep_data, 256 );
+
+
 	for (;;) {
 
         if( uxQueueMessagesWaiting(PortA->TxQueue) ) usart_port_handler( PortA );
         if( uxQueueMessagesWaiting(PortB->TxQueue) ) usart_port_handler( PortB );
 
 
-        rtc_process();
 
 		taskYIELD();
 	}
