@@ -28,8 +28,9 @@ typedef struct{
 }i2c_dev_t;
 
 
-void i2c_hw_init( uint32_t i2c );
-int iic_write( i2c_dev_t *dev, uint16_t reg, uint8_t *data, uint16_t len );
-int iic_read( i2c_dev_t *dev, uint16_t reg, uint8_t *data, uint16_t len );
+void        i2c_hw_init( uint32_t i2c );
+int         iic_write( i2c_dev_t *dev, uint16_t reg, uint8_t *data, uint16_t len );
+int         iic_read( i2c_dev_t *dev, uint16_t reg, uint8_t *data, uint16_t len );
+uint8_t     iic_get_init_flag(uint32_t i2c);
 
 #endif /* IIC_H_INCLUDED */

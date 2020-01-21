@@ -2,13 +2,15 @@
 #include "iic.h"
 
 
+static uint8_t i2c_hw_init_flag = 0;
+
+
 static int iic_check( i2c_dev_t *dev ) __attribute__((unused));
 
 
 /*  */
 static int iic_check( i2c_dev_t *dev )
 {
-
     uint32_t delay = 0;
 
     while ((I2C_SR2(dev->handle) & I2C_SR2_BUSY)) wait();
@@ -45,10 +47,12 @@ static int iic_check( i2c_dev_t *dev )
 }
 
 
-/* manualas en.CD00260217.pdf, punktas 2.10.7 */
+/*
+resetina hardwar'a net ir atveju, kai jis pakibo BUSY steite
+manualas en.CD00260217.pdf, punktas 2.10.7
+*/
 static void iic_reset(uint32_t i2c)
 {
-
     uint32_t i2c_port;
     uint16_t i2c_sda_pin, i2c_scl_pin;
 
@@ -74,15 +78,19 @@ static void iic_reset(uint32_t i2c)
     (void)gpio_get(i2c_port, i2c_sda_pin);
     (void)gpio_get(i2c_port, i2c_scl_pin);
 
+    gpio_set_mode(i2c_port, GPIO_MODE_OUTPUT_50_MHZ, GPIO_CNF_OUTPUT_OPENDRAIN, i2c_sda_pin);
     gpio_clear(i2c_port, i2c_sda_pin);
     (void)gpio_get(i2c_port, i2c_sda_pin);
 
+    gpio_set_mode(i2c_port, GPIO_MODE_OUTPUT_50_MHZ, GPIO_CNF_OUTPUT_OPENDRAIN, i2c_scl_pin);
     gpio_clear(i2c_port, i2c_scl_pin);
     (void)gpio_get(i2c_port, i2c_scl_pin);
 
+    gpio_set_mode(i2c_port, GPIO_MODE_OUTPUT_50_MHZ, GPIO_CNF_OUTPUT_OPENDRAIN, i2c_scl_pin);
     gpio_set(i2c_port, i2c_scl_pin);
     (void)gpio_get(i2c_port, i2c_scl_pin);
 
+    gpio_set_mode(i2c_port, GPIO_MODE_OUTPUT_50_MHZ, GPIO_CNF_OUTPUT_OPENDRAIN, i2c_sda_pin);
     gpio_set(i2c_port, i2c_sda_pin);
     (void)gpio_get(i2c_port, i2c_sda_pin);
 
@@ -97,7 +105,6 @@ static void iic_reset(uint32_t i2c)
 /*  */
 static int iic_send_control_byte( i2c_dev_t *dev, uint16_t reg )
 {
-
     while(I2C_SR2(dev->handle) & I2C_SR2_BUSY) wait();
 
     i2c_send_start(dev->handle);
@@ -123,7 +130,6 @@ static int iic_send_control_byte( i2c_dev_t *dev, uint16_t reg )
 /*  */
 int iic_read( i2c_dev_t *dev, uint16_t reg, uint8_t *data, uint16_t len )
 {
-
     iic_send_control_byte(dev, reg);
 
     i2c_enable_ack(dev->handle);
@@ -155,7 +161,6 @@ int iic_read( i2c_dev_t *dev, uint16_t reg, uint8_t *data, uint16_t len )
 /*  */
 int iic_write( i2c_dev_t *dev, uint16_t reg, uint8_t *data, uint16_t len )
 {
-
     iic_send_control_byte(dev, reg);
 
     i2c_disable_ack(dev->handle);
@@ -173,13 +178,24 @@ int iic_write( i2c_dev_t *dev, uint16_t reg, uint8_t *data, uint16_t len )
     return 0;
 }
 
+/*  */
+uint8_t iic_get_init_flag(uint32_t i2c)
+{
+    switch(i2c)
+    {
+    default:
+        return i2c_hw_init_flag;
+        break;
+    case I2C2:
+        return i2c_hw_init_flag;
+        break;
+    }
+}
+
 
 /*  */
 void i2c_hw_init(uint32_t i2c)
 {
-
-    static uint8_t i2c_hw_init_flag = 0;
-
     if(i2c_hw_init_flag) return;    // i2c hw inicializuotas - iseinam
 
     iic_reset(i2c);
@@ -202,8 +218,6 @@ void i2c_hw_init(uint32_t i2c)
         gpio_set_mode(GPIOB, GPIO_MODE_OUTPUT_50_MHZ, GPIO_CNF_OUTPUT_ALTFN_OPENDRAIN, GPIO_I2C1_SCL | GPIO_I2C1_SDA);
         gpio_set(GPIOB, GPIO_I2C1_SDA | GPIO_I2C1_SCL);
 
-        gpio_primary_remap(0, 0);
-
         break;
     case I2C2:
         /* Enable clocks for I2C2 */
@@ -225,3 +239,5 @@ void i2c_hw_init(uint32_t i2c)
 
     i2c_hw_init_flag = 1;
 }
+
+

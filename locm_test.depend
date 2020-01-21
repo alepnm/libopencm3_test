@@ -1573,21 +1573,22 @@
 1579526639 source:c:\work\git\libopencm3_projects\locm_test\src\tasks\task2.c
 	"utasks.h"
 
-1579526639 source:c:\work\git\libopencm3_projects\locm_test\src\tasks\task3.c
+1579563055 source:c:\work\git\libopencm3_projects\locm_test\src\tasks\task3.c
 	"utasks.h"
+	"ds1307.h"
 
 1579068922 source:c:\work\git\libopencm3_projects\locm_test\startup\startup_stm32f10x_md.s
 
-1579529045 source:c:\work\git\libopencm3_projects\locm_test\sysinit\mcuinit.c
+1579587016 source:c:\work\git\libopencm3_projects\locm_test\sysinit\mcuinit.c
 	<libopencm3/cm3/cortex.h>
 	"mcuinit.h"
 	"usart.h"
 	"e24lcxx.h"
-	"ds3107.h"
+	"ds1307.h"
 	"mcp.h"
 	"rtc.h"
 
-1579528989 source:c:\work\git\libopencm3_projects\locm_test\src\main.c
+1579560575 source:c:\work\git\libopencm3_projects\locm_test\src\main.c
 	<libopencm3/cm3/cortex.h>
 	"FreeRTOS.h"
 	"task.h"
@@ -1595,7 +1596,8 @@
 	"utasks.h"
 	"mcuinit.h"
 	"usart.h"
-	"rtc.h"
+	"e24lcxx.h"
+	"ds1307.h"
 
 1579031284 c:\work\git\libopencm3_projects\libopencm3\include\libopencm3\cm3\cortex.h
 	<stdbool.h>
@@ -4986,14 +4988,14 @@
 	"FreeRTOS.h"
 	"task.h"
 
-1579529662 source:c:\work\git\libopencm3_projects\locm_test\libs\eeprom\e24lcxx.c
+1579556207 source:c:\work\git\libopencm3_projects\locm_test\libs\eeprom\e24lcxx.c
 	"e24lcxx.h"
 
 1579524522 c:\work\git\libopencm3_projects\locm_test\libs\eeprom\e24lcxx.h
 	"defs.h"
 	"iic.h"
 
-1579526512 c:\work\git\libopencm3_projects\locm_test\libs\port\i2c\iic.h
+1579588322 c:\work\git\libopencm3_projects\locm_test\libs\port\i2c\iic.h
 	<libopencm3/cm3/systick.h>
 	<libopencm3/stm32/rcc.h>
 	<libopencm3/stm32/i2c.h>
@@ -5009,7 +5011,7 @@
 	"defs.h"
 	"iic.h"
 
-1579526834 source:c:\work\git\libopencm3_projects\locm_test\libs\port\i2c\iic.c
+1579588322 source:c:\work\git\libopencm3_projects\locm_test\libs\port\i2c\iic.c
 	"iic.h"
 
 1579528886 source:c:\work\git\libopencm3_projects\locm_test\libs\port\rtc\rtc.c
@@ -5127,4 +5129,13 @@
 	<libopencm3/stm32/gpio.h>
 	<libopencm3/stm32/i2c.h>
 	"ds1307.h"
+
+1579548615 source:c:\work\git\libopencm3_projects\locm_test\libs\ds1307\ds1307.c
+	<libopencm3/stm32/gpio.h>
+	<libopencm3/stm32/i2c.h>
+	"ds1307.h"
+
+1579547178 c:\work\git\libopencm3_projects\locm_test\libs\ds1307\ds1307.h
+	"defs.h"
+	"iic.h"
 

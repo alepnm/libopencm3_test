@@ -28,6 +28,8 @@ static void clock_setup(void)
 /*  */
 static void gpio_setup(void)
 {
+    gpio_primary_remap(0, 0);   // no remap
+
     /* Enable GPIO clock for leds. */
     rcc_periph_clock_enable(RCC_GPIOC);
 
