@@ -3196,7 +3196,7 @@
 
 1579068922 source:d:\projects\libopencm3_projects\locm_test\startup\startup_stm32f10x_md.s
 
-1579563018 source:d:\projects\libopencm3_projects\locm_test\sysinit\mcuinit.c
+1579587016 source:d:\projects\libopencm3_projects\locm_test\sysinit\mcuinit.c
 	<libopencm3/cm3/cortex.h>
 	"mcuinit.h"
 	"usart.h"
@@ -3205,7 +3205,7 @@
 	"mcp.h"
 	"rtc.h"
 
-1579560575 source:d:\projects\libopencm3_projects\locm_test\src\main.c
+1579726497 source:d:\projects\libopencm3_projects\locm_test\src\main.c
 	<libopencm3/cm3/cortex.h>
 	"FreeRTOS.h"
 	"task.h"
@@ -3215,6 +3215,7 @@
 	"usart.h"
 	"e24lcxx.h"
 	"ds1307.h"
+	"pcf8574_lcd.h"
 
 1579031284 d:\projects\libopencm3_projects\libopencm3\include\libopencm3\cm3\cortex.h
 	<stdbool.h>
@@ -5066,7 +5067,7 @@
 	"defs.h"
 	"iic.h"
 
-1579549307 d:\projects\libopencm3_projects\locm_test\libs\port\i2c\iic.h
+1579723795 d:\projects\libopencm3_projects\locm_test\libs\port\i2c\iic.h
 	<libopencm3/cm3/systick.h>
 	<libopencm3/stm32/rcc.h>
 	<libopencm3/stm32/i2c.h>
@@ -5082,7 +5083,7 @@
 	"defs.h"
 	"iic.h"
 
-1579563004 source:d:\projects\libopencm3_projects\locm_test\libs\port\i2c\iic.c
+1579723334 source:d:\projects\libopencm3_projects\locm_test\libs\port\i2c\iic.c
 	"iic.h"
 
 1579528886 source:d:\projects\libopencm3_projects\locm_test\libs\port\rtc\rtc.c
@@ -5138,4 +5139,15 @@
 1579547178 c:\work\git\libopencm3_projects\locm_test\libs\ds1307\ds1307.h
 	"defs.h"
 	"iic.h"
+
+1579731598 source:d:\projects\libopencm3_projects\locm_test\libs\pcf8574\pcf8574.c
+	"pcf8574.h"
+	"pcf8574_lcd.h"
+
+1579731676 d:\projects\libopencm3_projects\locm_test\libs\pcf8574\pcf8574.h
+	"defs.h"
+	"iic.h"
+
+1579726832 d:\projects\libopencm3_projects\locm_test\libs\pcf8574\pcf8574_lcd.h
+	"pcf8574.h"
 

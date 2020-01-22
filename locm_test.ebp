@@ -232,6 +232,11 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="libs\mcp23017\mcp.h" />
+		<Unit filename="libs\pcf8574\pcf8574.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs\pcf8574\pcf8574.h" />
+		<Unit filename="libs\pcf8574\pcf8574_lcd.h" />
 		<Unit filename="libs\port\i2c\iic.c">
 			<Option compilerVar="CC" />
 		</Unit>

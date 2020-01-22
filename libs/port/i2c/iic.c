@@ -178,6 +178,54 @@ int iic_write( i2c_dev_t *dev, uint16_t reg, uint8_t *data, uint16_t len )
     return 0;
 }
 
+
+
+
+/*  */
+int iic_simple_rw( i2c_dev_t *dev, uint8_t *data, uint16_t len, uint8_t rw ){
+
+    while(I2C_SR2(dev->handle) & I2C_SR2_BUSY) wait();
+
+    i2c_send_start(dev->handle);
+    while (!(I2C_SR1(dev->handle) & I2C_SR1_SB)) wait();
+
+    i2c_send_7bit_address(dev->handle, dev->i2c_addr, I2C_WRITE);
+    while (!(I2C_SR1(dev->handle) & I2C_SR1_ADDR)) wait();
+
+    (void)I2C_SR2(dev->handle);
+
+    i2c_enable_ack(dev->handle);
+
+    if(rw == I2C_WRITE){
+
+        while(len--)
+        {
+            i2c_send_data(dev->handle, *data++);
+            while (!(I2C_SR1(dev->handle) & (I2C_SR1_BTF))) wait();
+        }
+
+        while (!(I2C_SR1(dev->handle) & (I2C_SR1_BTF | I2C_SR1_TxE))) wait();
+
+    }else{
+
+        while(len--)
+        {
+            while (!(I2C_SR1(dev->handle) & I2C_SR1_RxNE)) wait();
+            *data++ = i2c_get_data(dev->handle);
+        }
+    }
+
+    i2c_send_stop(dev->handle);
+
+    return 0;
+}
+
+
+
+
+
+
+
 /*  */
 uint8_t iic_get_init_flag(uint32_t i2c)
 {

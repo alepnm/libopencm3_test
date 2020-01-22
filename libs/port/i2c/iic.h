@@ -12,10 +12,7 @@
 #include "defs.h"
 
 #define     IIC_DELAY_MS 5
-#define     wait()  //portYIELD()
-
-//#define     I2C_REQUEST_WRITE 0
-//#define     I2C_REQUEST_READ  1
+#define     wait()  portYIELD()
 
 #define MEM_ADDR_WIDTH_8BIT      1
 #define MEM_ADDR_WIDTH_16BIT     2
@@ -31,6 +28,9 @@ typedef struct{
 void        i2c_hw_init( uint32_t i2c );
 int         iic_write( i2c_dev_t *dev, uint16_t reg, uint8_t *data, uint16_t len );
 int         iic_read( i2c_dev_t *dev, uint16_t reg, uint8_t *data, uint16_t len );
+
+/* Paprastas siuntimas/skaitymas be registro adreso irasymo */
+int         iic_simple_rw( i2c_dev_t *dev, uint8_t *data, uint16_t len, uint8_t rw );
 uint8_t     iic_get_init_flag(uint32_t i2c);
 
 #endif /* IIC_H_INCLUDED */

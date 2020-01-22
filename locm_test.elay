@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <EmBitz_layout_file>
 	<ActiveTarget name="Debug" />
+	<File name="..\FreeRTOS-Kernel\croutine.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1992" topLine="0" />
+		</Cursor>
+	</File>
 	<File name="..\FreeRTOS-Kernel\include\queue.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="16987" topLine="448" />
@@ -11,7 +16,7 @@
 			<Cursor1 position="6801" topLine="89" />
 		</Cursor>
 	</File>
-	<File name="..\FreeRTOS-Kernel\portable\GCC\ARM_CM3\port.c" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="..\FreeRTOS-Kernel\portable\GCC\ARM_CM3\port.c" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="12817" topLine="304" />
 		</Cursor>
@@ -26,7 +31,7 @@
 			<Cursor1 position="66840" topLine="1890" />
 		</Cursor>
 	</File>
-	<File name="..\FreeRTOS-Kernel\tasks.c" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="..\FreeRTOS-Kernel\tasks.c" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="72852" topLine="2018" />
 		</Cursor>
@@ -41,6 +46,11 @@
 			<Cursor1 position="0" topLine="15" />
 		</Cursor>
 	</File>
+	<File name="..\libopencm3\lib\cm3\scb.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="8" />
+		</Cursor>
+	</File>
 	<File name="..\libopencm3\lib\cm3\systick.c" open="0" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="4967" topLine="143" />
@@ -51,17 +61,17 @@
 			<Cursor1 position="0" topLine="22" />
 		</Cursor>
 	</File>
-	<File name="..\libopencm3\lib\stm32\common\gpio_common_all.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="..\libopencm3\lib\stm32\common\gpio_common_all.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1102" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="..\libopencm3\lib\stm32\common\i2c_common_v1.c" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="..\libopencm3\lib\stm32\common\i2c_common_v1.c" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1873" topLine="45" />
 		</Cursor>
 	</File>
-	<File name="..\libopencm3\lib\stm32\common\rcc_common_all.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="..\libopencm3\lib\stm32\common\rcc_common_all.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="6356" topLine="153" />
 		</Cursor>
@@ -76,9 +86,9 @@
 			<Cursor1 position="1467" topLine="35" />
 		</Cursor>
 	</File>
-	<File name="..\libopencm3\lib\stm32\f1\gpio.c" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="..\libopencm3\lib\stm32\f1\gpio.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="6060" topLine="142" />
+			<Cursor1 position="6060" topLine="138" />
 		</Cursor>
 	</File>
 	<File name="..\libopencm3\lib\stm32\f1\i2c.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -96,7 +106,7 @@
 			<Cursor1 position="9080" topLine="293" />
 		</Cursor>
 	</File>
-	<File name="inc\defs.h" open="1" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="inc\defs.h" open="0" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="602" topLine="0" />
 		</Cursor>
@@ -106,12 +116,12 @@
 			<Cursor1 position="6588" topLine="75" />
 		</Cursor>
 	</File>
-	<File name="inc\stm32f10x.h" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="inc\stm32f10x.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="576646" topLine="7567" />
+			<Cursor1 position="54897" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="libs\ds1307\ds1307.c" open="1" top="0" tabpos="17" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="libs\ds1307\ds1307.c" open="0" top="0" tabpos="17" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="4882" topLine="56" />
 		</Cursor>
@@ -124,9 +134,9 @@
 			<Collapse line="149" />
 		</Folding>
 	</File>
-	<File name="libs\eeprom\e24lcxx.c" open="1" top="0" tabpos="19" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="libs\eeprom\e24lcxx.c" open="0" top="0" tabpos="19" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="4891" topLine="99" />
+			<Cursor1 position="3017" topLine="72" />
 		</Cursor>
 		<Folding>
 			<Collapse line="59" />
@@ -139,18 +149,17 @@
 			<Collapse line="161" />
 		</Folding>
 	</File>
-	<File name="libs\eeprom\e24lcxx.h" open="1" top="0" tabpos="18" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="libs\eeprom\e24lcxx.h" open="0" top="0" tabpos="18" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="118" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="libs\mcp23017\mcp.c" open="1" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="libs\mcp23017\mcp.c" open="0" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2626" topLine="0" />
+			<Cursor1 position="2365" topLine="0" />
 		</Cursor>
 		<Folding>
 			<Collapse line="8" />
-			<Collapse line="44" />
 			<Collapse line="52" />
 			<Collapse line="57" />
 			<Collapse line="62" />
@@ -160,22 +169,34 @@
 			<Collapse line="100" />
 		</Folding>
 	</File>
-	<File name="libs\mcp23017\mcp.h" open="1" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="libs\mcp23017\mcp.h" open="0" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="81" topLine="0" />
-		</Cursor>
-		<Folding>
-			<Collapse line="7" />
-		</Folding>
-	</File>
-	<File name="libs\port\i2c\iic.c" open="1" top="1" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1058" topLine="206" />
+			<Cursor1 position="148" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="libs\port\i2c\iic.h" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="libs\pcf8574\pcf8574.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="628" topLine="0" />
+			<Cursor1 position="734" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="libs\pcf8574\pcf8574.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="813" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="libs\pcf8574\pcf8574_lcd.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="128" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="libs\port\i2c\iic.c" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5479" topLine="161" />
+		</Cursor>
+	</File>
+	<File name="libs\port\i2c\iic.h" open="0" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="552" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="libs\port\rtc\rtc.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -188,9 +209,9 @@
 			<Cursor1 position="274" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\main.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\main.c" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="833" topLine="29" />
+			<Cursor1 position="727" topLine="6" />
 		</Cursor>
 	</File>
 	<File name="src\tasks\task1.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -203,7 +224,7 @@
 			<Cursor1 position="92" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\tasks\task3.c" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\tasks\task3.c" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="269" topLine="0" />
 		</Cursor>
@@ -213,14 +234,14 @@
 			<Cursor1 position="387" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="startup\startup_stm32f10x_md.S" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="startup\startup_stm32f10x_md.S" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="8338" topLine="196" />
 		</Cursor>
 	</File>
-	<File name="sysinit\mcuinit.c" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="sysinit\mcuinit.c" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="959" topLine="12" />
+			<Cursor1 position="959" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="sysinit\mcuinit.h" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
