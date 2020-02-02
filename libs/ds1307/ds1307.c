@@ -61,14 +61,6 @@ rtc_t* ds1307 = &rtc_dev;
 
 
 /* RTC DS1307 funkcijos  */
-static int ds_check( rtc_t* dev ){
-
-    //return iic_check( &(dev->i2c_base) );
-    dev->i2c_base.alive = 1;
-
-    return 0;
-}
-
 static int ds_read_register( rtc_t* dev, dsrtc_reg_t reg, uint8_t* data ){
 
     return iic_read( &(dev->i2c_base), reg, data, 1 );
@@ -171,7 +163,8 @@ int ds_init( rtc_t* dev ){
 
     i2c_hw_init(i2c->handle);
 
-    (void)ds_check( dev );
+    (void)iic_check(i2c);
+    //i2c->alive = 1;
 
     (void)ds_read_register( dev, RTC_INIT_REG, &temp );
 

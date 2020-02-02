@@ -1,10 +1,8 @@
 #ifndef DS1307_H_INCLUDED
 #define DS1307_H_INCLUDED
 
-#include "defs.h"
+#include "projdefs.h"
 #include "iic.h"
-
-#define RTC_IRQHandler rtc_irq_handler
 
 #define CONVERT_BIN2BCD(__VALUE__) (uint8_t)((((__VALUE__) / 10U) << 4U) | ((__VALUE__) % 10U))
 #define CONVERT_BCD2BIN(__VALUE__) (uint8_t)(((uint8_t)((__VALUE__) & (uint8_t)0xF0U) >> (uint8_t)0x4U) * 10U + ((__VALUE__) & (uint8_t)0x0FU))

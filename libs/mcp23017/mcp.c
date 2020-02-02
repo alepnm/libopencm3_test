@@ -42,14 +42,6 @@ mcp_t* mcp = &mcp_dev;
 
 
 /* MCP23017 funkcijos  */
-static int mcp_check( mcp_t* dev ){
-
-    //return iic_check( &(dev->i2c_base) );
-    dev->i2c_base.alive = 1;
-
-    return 0;
-}
-
 static int mcp_read_register( mcp_t* dev, mcp_reg_t reg, uint8_t* data ){
 
     return iic_read( &(dev->i2c_base), (uint8_t)reg, data, 1 );
@@ -115,7 +107,7 @@ int mcp_init( mcp_t* dev ){
 
     i2c_hw_init(i2c->handle);
 
-    (void)mcp_check( dev );
+    (void)iic_check( &(dev->i2c_base) );
 
     (void)mcp_write_register( dev, MCP_IOCON, 0x00 );
     (void)mcp_write_register( dev, MCP_IODIRA, ALL_OUTPUTS );

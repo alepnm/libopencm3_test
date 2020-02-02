@@ -6,14 +6,6 @@
 lcd_t lcd;
 
 
-static int pcf8574_check( pcf_t* dev ){
-
-    //return iic_check( &(dev->i2c_base) );
-    dev->i2c_base.alive = 1;
-
-    return 0;
-}
-
 /*   */
 void pcf8574_init(pcf_t* dev){
 
@@ -27,7 +19,7 @@ void pcf8574_init(pcf_t* dev){
     dev->devid = 0;
     dev->port_data = 0;
 
-    pcf8574_check(dev);
+    (void)iic_check( &(dev->i2c_base) );
 }
 
 
@@ -138,9 +130,9 @@ void lcd_init(lcd_t* dev){
     i2c->handle = I2C1;
     i2c->i2c_addr = PCF8574_I2C_ADDRESS;
     i2c->mem_addr_width = MEM_ADDR_WIDTH_8BIT;
-    i2c->alive = 1;
+    i2c->alive = 0;
 
-    //pcf8574_check(dev);
+    (void)iic_check( &(dev->i2c_base) );
 
     lcd_send_cmd(dev, L1602_CMD_FUNCTION|L1602_FLAG_2LINE);  // 4-bit mode, 2 lines, 5x7 format (1)
 

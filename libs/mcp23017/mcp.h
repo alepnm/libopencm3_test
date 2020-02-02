@@ -1,7 +1,7 @@
 #ifndef MCP_H_INCLUDED
 #define MCP_H_INCLUDED
 
-#include "defs.h"
+#include "projdefs.h"
 #include "iic.h"
 
 /* MCP */

@@ -1,7 +1,7 @@
 #ifndef PCF8574_C_INCLUDED
 #define PCF8574_C_INCLUDED
 
-#include "defs.h"
+#include "projdefs.h"
 #include "iic.h"
 
 

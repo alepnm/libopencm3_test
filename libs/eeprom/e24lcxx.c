@@ -1,5 +1,6 @@
 
 #include "e24lcxx.h"
+#include "ee_memorymap.h"
 
 /* EEPROM */
 #define E24LC32
@@ -57,14 +58,6 @@ static eeprom_t eep_dev;
 eeprom_t* eeprom = &eep_dev;
 
 /*  EEPROM funkcijos  */
-static int eep_check( eeprom_t* dev ){
-
-    //return iic_check( &(dev->i2c_base) );
-    dev->i2c_base.alive = 1;
-
-    return 0;
-}
-
 int eep_read( eeprom_t* dev, uint16_t reg, uint8_t* data, uint16_t len ){
 
     i2c_dev_t* i2c = &(dev->i2c_base);
@@ -204,6 +197,9 @@ int eep_init( eeprom_t* dev ){
 
     i2c_hw_init(i2c->handle);
 
-    return eep_check(dev);
+    (void)iic_check(i2c);
+    //i2c->alive = 1;
+
+    return 0;
 }
 

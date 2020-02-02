@@ -1,49 +1,99 @@
 
+#include "projdefs.h"
 #include "iic.h"
 
 
 static uint8_t i2c_hw_init_flag = 0;
 
 
-static int iic_check( i2c_dev_t *dev ) __attribute__((unused));
+//static int iic_check( i2c_dev_t *dev ) __attribute__((unused));
 
 
 /*  */
-static int iic_check( i2c_dev_t *dev )
+int iic_check( i2c_dev_t *dev )
 {
-    uint32_t delay = 0;
+    uint32_t delay = 0, tmp1, tmp2;
+    uint8_t trials = 1, state = RESET;
 
-    while ((I2C_SR2(dev->handle) & I2C_SR2_BUSY)) wait();
+    dev->alive = 0;
 
-    i2c_send_start(dev->handle);
-    while (!(I2C_SR1(dev->handle) & I2C_SR1_SB)) wait();
+    delay = timestamp + 10;
 
-    i2c_send_7bit_address(dev->handle, dev->i2c_addr, I2C_WRITE);
+    while( READ_BIT(I2C_SR2(dev->handle), I2C_SR2_BUSY) != RESET ){
 
-    (void)I2C_SR2(dev->handle);
+        if(delay < timestamp) return ERR_TIMEOUT;
 
-    i2c_send_data(dev->handle, 0x00);
-    while (!(I2C_SR1(dev->handle) & (I2C_SR1_BTF)))
-    {
-
-#warning systick'as neveikia kaip turi veikti
-
-        if( systick_get_countflag() )
-        {
-
-            delay++;
-
-            if(delay > 10)
-            {
-                dev->alive = 0;
-                return -1;
-            }
-        }
+        wait();
     }
 
-    dev->alive = 1;
+    CLEAR_BIT(I2C_CR1(dev->handle), I2C_CR1_POS);
 
-    return 0;
+    do{
+
+        delay = timestamp + 10;
+
+        i2c_send_start(dev->handle);
+
+        while( READ_BIT(I2C_SR1(dev->handle), I2C_SR1_SB) == RESET ){
+
+            if(delay < timestamp) return ERR_TIMEOUT;
+            wait();
+        }
+
+        delay = timestamp + 10;
+
+        i2c_send_7bit_address(dev->handle, dev->i2c_addr, I2C_WRITE);
+
+        tmp1 = READ_BIT(I2C_SR1(dev->handle), I2C_SR1_ADDR);
+        tmp2 = READ_BIT(I2C_SR1(dev->handle), I2C_SR1_AF);
+
+        while( (tmp1 == RESET) && (tmp2 == RESET) && (state == RESET) )
+        {
+            if(delay < timestamp) state = SET;
+
+            tmp1 = READ_BIT(I2C_SR1(dev->handle), I2C_SR1_ADDR);
+            tmp2 = READ_BIT(I2C_SR1(dev->handle), I2C_SR1_AF);
+            wait();
+        }
+
+        delay = timestamp + 10;
+
+        if( READ_BIT(I2C_SR1(dev->handle), I2C_SR1_ADDR) != RESET ){
+
+            i2c_send_stop(dev->handle);
+
+            /* clear addr flag */
+            (void)I2C_SR1(dev->handle);
+            (void)I2C_SR2(dev->handle);
+
+            while(READ_BIT(I2C_SR2(dev->handle), I2C_SR2_BUSY) != RESET){
+
+                if(delay < timestamp) return ERR_ERROR;
+                wait();
+            }
+
+            dev->alive = 1;
+
+            return ERR_NONE;
+
+        }else{
+
+            i2c_send_stop(dev->handle);
+
+            CLEAR_BIT(I2C_SR1(dev->handle), I2C_SR1_AF);
+
+            while(READ_BIT(I2C_SR2(dev->handle), I2C_SR2_BUSY) != RESET){
+
+                if(delay < timestamp) return ERR_ERROR;
+                wait();
+            }
+
+            dev->alive = 0;
+
+            return ERR_ERROR;
+        }
+
+    }while(trials--);
 }
 
 
@@ -113,6 +163,7 @@ static int iic_send_control_byte( i2c_dev_t *dev, uint16_t reg )
     i2c_send_7bit_address(dev->handle, dev->i2c_addr, I2C_WRITE);
     while (!(I2C_SR1(dev->handle) & I2C_SR1_ADDR)) wait();
 
+    (void)I2C_SR1(dev->handle);
     (void)I2C_SR2(dev->handle);
 
     if(dev->mem_addr_width == MEM_ADDR_WIDTH_16BIT)
@@ -122,7 +173,7 @@ static int iic_send_control_byte( i2c_dev_t *dev, uint16_t reg )
     }
 
     i2c_send_data(dev->handle, (uint8_t)(reg&0x00FF));
-    while (!(I2C_SR1(dev->handle) & (I2C_SR1_BTF))) wait();
+    while (!(I2C_SR1(dev->handle) & (I2C_SR1_BTF | I2C_SR1_TxE))) wait();
 
     return 0;
 }
@@ -140,6 +191,7 @@ int iic_read( i2c_dev_t *dev, uint16_t reg, uint8_t *data, uint16_t len )
     i2c_send_7bit_address(dev->handle, dev->i2c_addr, I2C_READ);
     while (!(I2C_SR1(dev->handle) & I2C_SR1_ADDR)) wait();
 
+    (void)I2C_SR1(dev->handle);
     (void)I2C_SR2(dev->handle);
 
     while(len-- > 1)
@@ -192,6 +244,7 @@ int iic_simple_rw( i2c_dev_t *dev, uint8_t *data, uint16_t len, uint8_t rw ){
     i2c_send_7bit_address(dev->handle, dev->i2c_addr, I2C_WRITE);
     while (!(I2C_SR1(dev->handle) & I2C_SR1_ADDR)) wait();
 
+    (void)I2C_SR1(dev->handle);
     (void)I2C_SR2(dev->handle);
 
     i2c_enable_ack(dev->handle);
