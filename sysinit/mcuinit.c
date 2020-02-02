@@ -2,6 +2,7 @@
 #include <libopencm3/cm3/cortex.h>
 
 #include "mcuinit.h"
+#include "systick.h"
 #include "usart.h"
 #include "e24lcxx.h"
 #include "ds1307.h"
@@ -46,6 +47,7 @@ void MCU_Init(void)
     //cm_disable_interrupts();
 
     clock_setup();
+    //systick_setup();
     gpio_setup();
     usart_init();
     eep_init(eeprom);

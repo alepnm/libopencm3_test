@@ -8,6 +8,8 @@ void task1(void *args)
 
 	(void)args;
 
+	while(READ_BIT(sys_status.status, SYS_INIT_BIT) == false) taskYIELD();
+
 	for (;;) {
 
 		//SendStringToQueue( PortA->TxQueue, sms);

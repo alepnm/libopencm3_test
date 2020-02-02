@@ -5,7 +5,11 @@
 #include "queue.h"
 #include "task.h"
 
+#include "projdefs.h"
 #include "usart.h"
+
+
+extern uint8_t sys_init_flag;
 
 extern void SendToQueue( QueueHandle_t que, char* data, uint8_t len );
 extern void SendStringToQueue( QueueHandle_t que, char* data );

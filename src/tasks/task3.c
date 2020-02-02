@@ -9,13 +9,15 @@ void task3(void *args)
 
 	(void)args;
 
+	while(READ_BIT(sys_status.status, SYS_INIT_BIT) == false) taskYIELD();
+
 	for (;;) {
 
         SendStringToQueue( PortA->TxQueue, sms);
 
-        //gpio_toggle(LED1.port, LED1.pin);
+        //gpio_toggle(GPIOC, GPIO13);
 
-        (void)ds_get_datetime( ds1307 );
+        //(void)ds_get_datetime( ds1307 );
 
         vTaskDelay(1000);
 	}
