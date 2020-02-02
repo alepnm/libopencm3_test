@@ -1,7 +1,7 @@
 #ifndef DS1307_H_INCLUDED
 #define DS1307_H_INCLUDED
 
-#include "projdefs.h"
+#include "globals.h"
 #include "iic.h"
 
 #define CONVERT_BIN2BCD(__VALUE__) (uint8_t)((((__VALUE__) / 10U) << 4U) | ((__VALUE__) % 10U))

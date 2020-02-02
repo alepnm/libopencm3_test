@@ -63,27 +63,36 @@ static void usart_hw_init(uint32_t usart)
 void usart_init(void)
 {
     PortA->usart = USART1;
-    CONF_ENABLE_PORT1();        /* @TODO sutvarkyti darba su config registru */
-    CONF_SET_PORT1_BAUDRATE(BR19200);
+
+    PortA->config.enable = STATE_DISABLED;
+    PortA->config.bdidx = 1;
+    PortA->config.databits = 8;
+    PortA->config.stopbits = USART_STOPBITS_1;
+    PortA->config.parity = USART_PARITY_NONE;
+
     PortA->port_timer = 0;
     PortA->TxQueue = xQueueCreate(256, 1);
     PortA->rx_index = 0;
 
     usart_hw_init(PortA->usart);
 
-    usart_config( PRIMARY_PORT, CONF_GET_PORT1_BAUDRATE(), 8, USART_PARITY_NONE );
-
+    usart_config( PRIMARY_PORT, BR19200, 8, USART_PARITY_NONE );
 
     PortB->usart = USART2;
-    CONF_ENABLE_PORT2();        /* @TODO sutvarkyti darba su config registru */
-    CONF_SET_PORT2_BAUDRATE(BR19200);
+
+    PortB->config.enable = STATE_DISABLED;
+    PortB->config.bdidx = 1;
+    PortB->config.databits = 8;
+    PortB->config.stopbits = USART_STOPBITS_1;
+    PortB->config.parity = USART_PARITY_NONE;
+
     PortB->port_timer = 0;
     PortB->TxQueue = xQueueCreate(256, 1);
     PortB->rx_index = 0;
 
     usart_hw_init(PortB->usart);
 
-    usart_config( SECONDARY_PORT, CONF_GET_PORT2_BAUDRATE(), 8, USART_PARITY_NONE );
+    usart_config( SECONDARY_PORT, BR19200, 8, USART_PARITY_NONE );
 }
 
 
@@ -92,11 +101,15 @@ uint8_t usart_config( uint8_t port, uint8_t baudrate, uint8_t databits, uint32_t
 
     usart_port_t* sp = &Ports[port];
 
+    sp->config.bdidx = 1;
+    sp->config.databits = 8;
+    sp->config.stopbits = USART_STOPBITS_1;
+    sp->config.parity = parity;
+
+    sp->config.enable = STATE_DISABLED;
     usart_disable(sp->usart);
 
     usart_set_mode(sp->usart, USART_MODE_TX_RX);
-
-    MODIFY_REG(sp->config, CONF_PORT_BR_CURRENT_Msk, (baudrate<<CONF_PORT_BR_CURRENT_Pos));
 
     usart_set_baudrate(sp->usart, baud[baudrate]);
     usart_set_stopbits(sp->usart, USART_STOPBITS_1);
@@ -113,6 +126,8 @@ uint8_t usart_config( uint8_t port, uint8_t baudrate, uint8_t databits, uint32_t
     usart_enable_rx_interrupt(sp->usart);
     usart_disable_tx_interrupt(sp->usart);
     usart_disable_tc_interrupt(sp->usart);
+
+    sp->config.enable = STATE_ENABLED;
 
     return 0;
 }

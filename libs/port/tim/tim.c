@@ -1,5 +1,5 @@
 
-#include "projdefs.h"
+#include "globals.h"
 #include "tim.h"
 
 

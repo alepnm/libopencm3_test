@@ -7,7 +7,7 @@
 #include "FreeRTOS.h"
 #include "queue.h"
 
-#include "projdefs.h"
+#include "globals.h"
 
 #define PRIMARY_PORT    0
 #define SECONDARY_PORT  1
@@ -18,36 +18,23 @@
 #define RX_TIMEOUT  100
 
 
-/* Port Baudrate Register Definitions
-8 - port enable/disable
-5:7 - baudrate
-
-
-*/
-#define CONF_PORT_ENABLE_Pos 7
-#define CONF_PORT_ENABLE_Msk (0x01UL<<CONF_PORT_ENABLE_Pos)
-#define CONF_PORT_BR_CURRENT_Pos 5
-#define CONF_PORT_BR_CURRENT_Msk (0x07UL<<CONF_PORT_BR_CURRENT_Pos)
-
-#define CONF_ENABLE_PORT1()         SET_BIT(PortA->config, CONF_PORT_ENABLE_Msk)
-#define CONF_DISABLE_PORT1()        CLEAR_BIT(PortA->config, CONF_PORT_ENABLE_Msk)
-#define CONF_ENABLE_PORT2()         SET_BIT(PortB->config, CONF_PORT_ENABLE_Msk)
-#define CONF_DISABLE_PORT2()        CLEAR_BIT(PortB->config, CONF_PORT_ENABLE_Msk)
-
-#define CONF_SET_PORT1_BAUDRATE(x)  MODIFY_REG(PortA->config, CONF_PORT_BR_CURRENT_Msk, (x<<CONF_PORT_BR_CURRENT_Pos))
-#define CONF_GET_PORT1_BAUDRATE()    ((PortA->config&CONF_PORT_BR_CURRENT_Msk)>>CONF_PORT_BR_CURRENT_Pos)
-#define CONF_SET_PORT2_BAUDRATE(x)  MODIFY_REG(PortB->config, CONF_PORT_BR_CURRENT_Msk, (x<<CONF_PORT_BR_CURRENT_Pos))
-#define CONF_GET_PORT2_BAUDRATE()    ((PortB->config&CONF_PORT_BR_CURRENT_Msk)>>CONF_PORT_BR_CURRENT_Pos)
-
-
-enum {BR9600, BR19200, BR57600, BR115200};
+enum {BR9600=0, BR19200, BR57600, BR115200};
 
 extern const uint32_t baud[];
 
 
 typedef struct{
+
     uint32_t        usart;
-    uint8_t         config;     // porto config registras
+
+    struct _conf{
+        uint8_t     enable      :1;
+        uint8_t     bdidx       :2;
+        uint8_t     databits    :4;
+        uint32_t    stopbits;
+        uint32_t    parity;
+    }config;
+
     uint16_t        port_timer;
     QueueHandle_t   TxQueue;
     char            rx_buffer[RX_BUFFER_SIZE];

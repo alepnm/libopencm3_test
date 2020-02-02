@@ -11,7 +11,7 @@ typedef enum { DISABLE = 0, ENABLE = !DISABLE } eState;
 typedef enum { SUCCESS = 0, ERROR = !SUCCESS } eResult;
 
 enum { ERR_NONE = 0, ERR_ERROR, ERR_TIMEOUT };
-enum { STATE_ENABLED = 0, STATE_DISABLED, STATE_READY, STATE_BUSY, STATE_TIMEOUT };     // steitai
+enum { STATE_DISABLED = 0, STATE_ENABLED, STATE_READY, STATE_BUSY, STATE_TIMEOUT };     // steitai
 
 #define IS_FUNCTIONAL_STATE(STATE) (((STATE) == DISABLE) || ((STATE) == ENABLE))
 
@@ -24,27 +24,6 @@ enum { STATE_ENABLED = 0, STATE_DISABLED, STATE_READY, STATE_BUSY, STATE_TIMEOUT
 #define WRITE_REG(REG, VAL)   ((REG) = (VAL))
 #define READ_REG(REG)         ((REG))
 #define MODIFY_REG(REG, CLEARMASK, SETMASK)  WRITE_REG((REG), (((READ_REG(REG)) & (~(CLEARMASK))) | (SETMASK)))
-
-
-#define SYS_GPIO_PIN1       (1<<0)
-#define SYS_GPIO_PIN2       (1<<1)
-#define SYS_GPIO_PIN3       (1<<2)
-#define SYS_GPIO_PIN4       (1<<3)
-//...
-#define SYS_INIT_BIT        (1<<16)
-
-
-/* Status registras
-0:15 bitai - IO pinu busenos
-16 - sistemos inicializavimo flagas; nustatomas, kai hw inicializuotas, pagrindinis FreeRTOS taskas yra vykdomas
- */
-struct _status{
-    uint32_t    status;
-
-}sys_status;
-
-extern  struct _status sys_status;
-
 
 
 /* IRQ handlers aliases */

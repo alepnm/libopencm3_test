@@ -13,7 +13,7 @@
 #include "utasks.h"
 
 /* system includes */
-#include "projdefs.h"
+#include "globals.h"
 #include "tim.h"
 #include "usart.h"
 #include "rtc.h"
@@ -22,9 +22,10 @@
 #include "e24lcxx.h"
 
 /* duomenu struktura, kuri sudarys kintamuju aplinka ir kuri bus saugoma EEPROM'e */
-struct _sys_env{
-    const uint32_t*             timestamp;
-
+static struct _sys_env{
+    const uint32_t*     timestamp;
+    struct _conf*       porta_config;
+    struct _conf*       portb_config;
 }sys_env;
 
 
@@ -82,14 +83,10 @@ void main_task(void *args)
 {
 	(void)args;
 
-    /*  */
-	sys_env.timestamp = &timestamp;
-
-
-
 	eep_init( eeprom );
-    eep_restore_data();
+	eep_read( eeprom, 0, eep_buf, 256);
 
+    eep_restore_data();
 
 	SET_BIT(sys_status.status, SYS_INIT_BIT);
 
@@ -142,13 +139,19 @@ void SendStringToQueue( QueueHandle_t que, char* data ){
 /*  */
 int main(void)
 {
-    CLEAR_REG(sys_status.status);
+    sys_status.status = 0;
 
     clock_init();
     tim2_init();
     gpio_init();
     rtc_init();
     usart_init();
+
+
+    /*  */
+	sys_env.timestamp = &timestamp;
+    sys_env.porta_config = &(PortA->config);
+    sys_env.portb_config = &(PortB->config);
 
     xTaskCreate(main_task, "MainTask", 100, NULL, configMAX_PRIORITIES-1, NULL);
 	xTaskCreate(task1, "Task1", 100, NULL, configMAX_PRIORITIES-1, NULL);

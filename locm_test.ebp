@@ -14,18 +14,18 @@
 				<Option compiler="armgcc_eb" />
 				<Option projectDeviceOptionsRelation="0" />
 				<Compiler>
-					<Add option="-g3" />
-					<Add option="-O0" />
 					<Add option="-Wall" />
 					<Add option="-fdata-sections" />
 					<Add option="-ffunction-sections" />
+					<Add option="-O0" />
+					<Add option="-g3" />
 				</Compiler>
 				<Cpp>
-					<Add option="-g3" />
-					<Add option="-O0" />
 					<Add option="-Wall" />
 					<Add option="-fdata-sections" />
 					<Add option="-ffunction-sections" />
+					<Add option="-O0" />
+					<Add option="-g3" />
 				</Cpp>
 				<Assembler>
 					<Add option="-Wa,--gdwarf-2" />
@@ -79,6 +79,68 @@
 			<Add option="-eb_lib=n" />
 			<Add option="-eb_start_files" />
 		</Linker>
+		<Unit filename="inc\ee_memorymap.h" />
+		<Unit filename="inc\FreeRTOSConfig.h" />
+		<Unit filename="inc\globals.h" />
+		<Unit filename="inc\projdefs.h" />
+		<Unit filename="inc\system_stm32f10x.h" />
+		<Unit filename="libs\ds1307\ds1307.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs\ds1307\ds1307.h" />
+		<Unit filename="libs\eeprom\e24lcxx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs\eeprom\e24lcxx.h" />
+		<Unit filename="libs\mcp23017\mcp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs\mcp23017\mcp.h" />
+		<Unit filename="libs\pcf8574\pcf8574.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs\pcf8574\pcf8574.h" />
+		<Unit filename="libs\pcf8574\pcf8574_lcd.h" />
+		<Unit filename="libs\port\gpio\gpio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs\port\gpio\gpio.h" />
+		<Unit filename="libs\port\i2c\iic.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs\port\i2c\iic.h" />
+		<Unit filename="libs\port\rtc\rtc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs\port\rtc\rtc.h" />
+		<Unit filename="libs\port\tim\tim.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs\port\tim\tim.h" />
+		<Unit filename="libs\port\usart\usart.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs\port\usart\usart.h" />
+		<Unit filename="pastabos.txt" />
+		<Unit filename="src\main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src\system_stm32f10x.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src\tasks\task1.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src\tasks\task2.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src\tasks\task3.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src\tasks\utasks.h" />
+		<Unit filename="startup\startup_stm32f10x_md.S">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="..\FreeRTOS-Kernel\croutine.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -216,67 +278,6 @@
 		<Unit filename="..\libopencm3\lib\stm32\f1\timer.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="inc\defs.h" />
-		<Unit filename="inc\FreeRTOSConfig.h" />
-		<Unit filename="inc\stm32f10x.h" />
-		<Unit filename="inc\system_stm32f10x.h" />
-		<Unit filename="libs\ds1307\ds1307.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="libs\ds1307\ds1307.h" />
-		<Unit filename="libs\eeprom\e24lcxx.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="libs\eeprom\e24lcxx.h" />
-		<Unit filename="libs\mcp23017\mcp.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="libs\mcp23017\mcp.h" />
-		<Unit filename="libs\pcf8574\pcf8574.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="libs\pcf8574\pcf8574.h" />
-		<Unit filename="libs\pcf8574\pcf8574_lcd.h" />
-		<Unit filename="libs\port\i2c\iic.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="libs\port\i2c\iic.h" />
-		<Unit filename="libs\port\rtc\rtc.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="libs\port\rtc\rtc.h" />
-		<Unit filename="libs\port\systick\systick.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="libs\port\systick\systick.h" />
-		<Unit filename="libs\port\usart\usart.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="libs\port\usart\usart.h" />
-		<Unit filename="pastabos.txt" />
-		<Unit filename="src\main.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="src\system_stm32f10x.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="src\tasks\task1.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="src\tasks\task2.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="src\tasks\task3.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="src\tasks\utasks.h" />
-		<Unit filename="startup\startup_stm32f10x_md.S">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="sysinit\mcuinit.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="sysinit\mcuinit.h" />
 		<Extensions>
 			<code_completion />
 			<debugger>

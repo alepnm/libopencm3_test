@@ -9,7 +9,7 @@
 #include "FreeRTOS.h"
 #include "task.h"
 
-#include "projdefs.h"
+#include "globals.h"
 #include "gpio.h"
 #include "tim.h"
 

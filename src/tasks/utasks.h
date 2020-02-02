@@ -5,7 +5,7 @@
 #include "queue.h"
 #include "task.h"
 
-#include "projdefs.h"
+#include "globals.h"
 #include "usart.h"
 
 

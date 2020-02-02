@@ -1,7 +1,7 @@
 #ifndef EEP_H_INCLUDED
 #define EEP_H_INCLUDED
 
-#include "projdefs.h"
+#include "globals.h"
 #include "iic.h"
 
 /* EEPROM */
