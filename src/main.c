@@ -1,19 +1,10 @@
-/*
-**
-**                           Main.c
-**
-**
-**********************************************************************/
-/*
-   Last committed:     $Revision: 00 $
-   Last changed by:    $Author: $
-   Last changed date:  $Date:  $
-   ID:                 $Id:  $
 
-**********************************************************************/
-
-//#include <libopencm3/cm3/common.h>
+//#include <libopencmsis/core_cm3.h>
+#include <libopencm3/cm3/common.h>
 #include <libopencm3/cm3/cortex.h>
+#include <libopencm3/cm3/nvic.h>
+#include <libopencm3/stm32/timer.h>
+
 
 /* FreeRTOS includes */
 #include "FreeRTOS.h"
@@ -22,12 +13,68 @@
 #include "utasks.h"
 
 /* system includes */
-#include "mcuinit.h"
+#include "projdefs.h"
+#include "tim.h"
 #include "usart.h"
-#include "e24lcxx.h"
-#include "ds1307.h"
+#include "rtc.h"
 
-uint8_t eep_data[256];
+
+#include "e24lcxx.h"
+
+/* duomenu struktura, kuri sudarys kintamuju aplinka ir kuri bus saugoma EEPROM'e */
+struct _sys_env{
+    const uint32_t*             timestamp;
+
+}sys_env;
+
+
+uint8_t     eep_buf[256];
+
+
+
+/*  */
+static void clock_init(void)
+{
+    rcc_clock_setup_in_hse_8mhz_out_72mhz();
+
+    rcc_periph_clock_enable(RCC_GPIOA);
+    rcc_periph_clock_enable(RCC_GPIOB);
+    rcc_periph_clock_enable(RCC_GPIOC);
+
+    rcc_periph_clock_enable(RCC_USART1);
+    rcc_periph_clock_disable(RCC_USART2);
+    rcc_periph_clock_disable(RCC_USART3);
+}
+
+/*  */
+static void gpio_init(void)
+{
+    gpio_primary_remap(0, 0);   // no remap
+
+    /* Enable GPIO clock for leds. */
+    rcc_periph_clock_enable(RCC_GPIOC);
+
+    /* Enable led as output */
+    gpio_set_mode(GPIOC, GPIO_MODE_OUTPUT_50_MHZ, GPIO_CNF_OUTPUT_PUSHPULL, GPIO13);
+
+    gpio_set(GPIOC, GPIO13);
+}
+
+
+/*  */
+void eep_restore_data(void){
+
+
+}
+
+
+/*  */
+void eep_save_data(void){
+
+
+}
+
+
 
 
 /* pagrindinis taskas */
@@ -35,10 +82,16 @@ void main_task(void *args)
 {
 	(void)args;
 
+    /*  */
+	sys_env.timestamp = &timestamp;
 
-    //eep_clear(eeprom);
-    eep_read( eeprom, 0, eep_data, 256 );
 
+
+	eep_init( eeprom );
+    eep_restore_data();
+
+
+	SET_BIT(sys_status.status, SYS_INIT_BIT);
 
 	for (;;) {
 
@@ -46,6 +99,7 @@ void main_task(void *args)
         if( uxQueueMessagesWaiting(PortB->TxQueue) ) usart_port_handler( PortB );
 
 
+        rtc_process();
 
 		taskYIELD();
 	}
@@ -84,10 +138,17 @@ void SendStringToQueue( QueueHandle_t que, char* data ){
     }
 }
 
+
 /*  */
 int main(void)
 {
-    MCU_Init();
+    CLEAR_REG(sys_status.status);
+
+    clock_init();
+    tim2_init();
+    gpio_init();
+    rtc_init();
+    usart_init();
 
     xTaskCreate(main_task, "MainTask", 100, NULL, configMAX_PRIORITIES-1, NULL);
 	xTaskCreate(task1, "Task1", 100, NULL, configMAX_PRIORITIES-1, NULL);
@@ -116,4 +177,10 @@ void vApplicationStackOverflowHook(xTaskHandle *pxTask,signed portCHAR *pcTaskNa
 	(void)pcTaskName;
 
 	for(;;);
+}
+
+
+void hard_fault_handler(void)
+{
+	while (1);
 }

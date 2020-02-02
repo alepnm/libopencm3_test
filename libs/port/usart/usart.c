@@ -11,6 +11,8 @@
 #define     usart_clear_tc_interrupt(sp)        (USART_SR(sp) &= ~USART_SR_TC)
 #define     usart_is_active_tc_interrupt(sp)    (USART_SR(sp) & USART_SR_TC)
 
+const uint32_t baud[4] = {9600, 19200, 57600, 115200};
+
 static usart_port_t Ports[3];
 
 usart_port_t* PortA = &Ports[0];
@@ -61,28 +63,32 @@ static void usart_hw_init(uint32_t usart)
 void usart_init(void)
 {
     PortA->usart = USART1;
+    CONF_ENABLE_PORT1();        /* @TODO sutvarkyti darba su config registru */
+    CONF_SET_PORT1_BAUDRATE(BR19200);
     PortA->port_timer = 0;
     PortA->TxQueue = xQueueCreate(256, 1);
     PortA->rx_index = 0;
 
     usart_hw_init(PortA->usart);
 
-    usart_config( PRIMARY_PORT, 19200, 8, USART_PARITY_NONE );
+    usart_config( PRIMARY_PORT, CONF_GET_PORT1_BAUDRATE(), 8, USART_PARITY_NONE );
 
 
     PortB->usart = USART2;
+    CONF_ENABLE_PORT2();        /* @TODO sutvarkyti darba su config registru */
+    CONF_SET_PORT2_BAUDRATE(BR19200);
     PortB->port_timer = 0;
     PortB->TxQueue = xQueueCreate(256, 1);
     PortB->rx_index = 0;
 
     usart_hw_init(PortB->usart);
 
-    usart_config( SECONDARY_PORT, 19200, 8, USART_PARITY_NONE );
+    usart_config( SECONDARY_PORT, CONF_GET_PORT2_BAUDRATE(), 8, USART_PARITY_NONE );
 }
 
 
 /*  */
-uint8_t usart_config( uint8_t port, uint32_t baudrate, uint8_t databits, uint32_t parity ) {
+uint8_t usart_config( uint8_t port, uint8_t baudrate, uint8_t databits, uint32_t parity ) {
 
     usart_port_t* sp = &Ports[port];
 
@@ -90,7 +96,9 @@ uint8_t usart_config( uint8_t port, uint32_t baudrate, uint8_t databits, uint32_
 
     usart_set_mode(sp->usart, USART_MODE_TX_RX);
 
-    usart_set_baudrate(sp->usart, baudrate);
+    MODIFY_REG(sp->config, CONF_PORT_BR_CURRENT_Msk, (baudrate<<CONF_PORT_BR_CURRENT_Pos));
+
+    usart_set_baudrate(sp->usart, baud[baudrate]);
     usart_set_stopbits(sp->usart, USART_STOPBITS_1);
     usart_set_parity(sp->usart, parity);
 
@@ -162,7 +170,7 @@ void nextion_cmd(void){
 
 
 /*  */
-void usart_irq_common(uint8_t port)
+void usart_isr_common(uint8_t port)
 {
     usart_port_t* sp = &Ports[port];
     char* ptr = &sp->rx_buffer[sp->rx_index];
@@ -200,19 +208,19 @@ void usart_irq_common(uint8_t port)
 }
 
 
-void usart1_irq_handler( void )
+void usart1_isr( void )
 {
-    usart_irq_common(PRIMARY_PORT);
+    usart_isr_common(PRIMARY_PORT);
 }
 
 
-void usart2_irq_handler( void )
+void usart2_isr( void )
 {
-    usart_irq_common(SECONDARY_PORT);
+    usart_isr_common(SECONDARY_PORT);
 }
 
 
-void usart3_irq_handler( void )
+void usart3_isr( void )
 {
-    usart_irq_common(2);
+    usart_isr_common(2);
 }

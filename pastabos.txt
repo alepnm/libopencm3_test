@@ -1,4 +1,40 @@
 
+https://github.com/OliviliK/STM32F103/wiki/Tutorial2_LOCM3Template
+
+
+Установка и подключение libopencm3 к проекту STM32F10xx:
+
+N.  прописываем дефайн 'STM32F1'
+N.  включаем в проект необходимые библиотечные файлы из директории '/lib/cm3', '/lib/stm32/common' и '/lib/stm32/f1'
+N.  в настройках проекта прописываем путь к заголовочным файлам - директории '/include'.
+    Дальнейший путь от этой директории к каждому заголовочному файлу указывается при его подключении к проекту:
+    '#include <libopencmsis/core_cm3.h>';
+N.  во всех файлах библиотеки прописываем '#include <libopencmsis/core_cm3.h>'
+
+
+
+
+
+/* уточнять */
+N.  в начало system_stm32f01x.h прописываем '#include <libopencmsis/stm32/f1/irqhandlers.h>'
+N.  ...... :
+        #define SVC_Handler             sv_call_handler
+        #define PendSV_Handler          pend_sv_handler
+        #define SysTick_Handler         sys_tick_handler
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /* makrosas atomarinems operacijoms (cortex.h) */
     CM_ATOMIC_BLOCK(){
