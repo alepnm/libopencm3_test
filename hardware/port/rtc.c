@@ -7,6 +7,8 @@
 #define T1000MS 0xFFFFFC17
 
 
+
+
 /*   */
 void rtc_init(void)
 {
@@ -28,6 +30,7 @@ void rtc_init(void)
     rtc_interrupt_disable(RTC_ALR);
 	rtc_interrupt_disable(RTC_SEC);
 	rtc_interrupt_disable(RTC_OW);
+
 }
 
 
@@ -48,6 +51,7 @@ void rtc_process(void)
         gpio_toggle(GPIOC, GPIO13);
 
         rtc_set_counter_val(T100MS);
+
     }
 }
 

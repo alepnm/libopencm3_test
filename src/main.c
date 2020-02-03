@@ -23,7 +23,7 @@
 
 /* duomenu struktura, kuri sudarys kintamuju aplinka ir kuri bus saugoma EEPROM'e */
 static struct _sys_env{
-    const uint32_t*     timestamp;
+    struct _dt*         pdt;
     struct _conf*       porta_config;
     struct _conf*       portb_config;
 }sys_env;
@@ -149,7 +149,7 @@ int main(void)
 
 
     /*  */
-	sys_env.timestamp = &timestamp;
+	sys_env.pdt = &datetime;
     sys_env.porta_config = &(PortA->config);
     sys_env.portb_config = &(PortB->config);
 

@@ -10,7 +10,7 @@
 
 #define tim2_isr TIM2_IRQHandler
 
-extern uint32_t timestamp;
+extern uint32_t systick;
 
 void        tim2_init(void);
 

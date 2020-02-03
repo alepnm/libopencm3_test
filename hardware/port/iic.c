@@ -17,11 +17,11 @@ int iic_check( i2c_dev_t *dev )
 
     dev->alive = 0;
 
-    delay = timestamp + 10;
+    delay = systick + 10;
 
     while( READ_BIT(I2C_SR2(dev->handle), I2C_SR2_BUSY) != RESET ){
 
-        if(delay < timestamp) return ERR_TIMEOUT;
+        if(delay < systick) return ERR_TIMEOUT;
 
         wait();
     }
@@ -30,17 +30,17 @@ int iic_check( i2c_dev_t *dev )
 
     do{
 
-        delay = timestamp + 10;
+        delay = systick + 10;
 
         i2c_send_start(dev->handle);
 
         while( READ_BIT(I2C_SR1(dev->handle), I2C_SR1_SB) == RESET ){
 
-            if(delay < timestamp) return ERR_TIMEOUT;
+            if(delay < systick) return ERR_TIMEOUT;
             wait();
         }
 
-        delay = timestamp + 10;
+        delay = systick + 10;
 
         i2c_send_7bit_address(dev->handle, dev->i2c_addr, I2C_WRITE);
 
@@ -49,14 +49,14 @@ int iic_check( i2c_dev_t *dev )
 
         while( (tmp1 == RESET) && (tmp2 == RESET) && (state == RESET) )
         {
-            if(delay < timestamp) state = SET;
+            if(delay < systick) state = SET;
 
             tmp1 = READ_BIT(I2C_SR1(dev->handle), I2C_SR1_ADDR);
             tmp2 = READ_BIT(I2C_SR1(dev->handle), I2C_SR1_AF);
             wait();
         }
 
-        delay = timestamp + 10;
+        delay = systick + 10;
 
         if( READ_BIT(I2C_SR1(dev->handle), I2C_SR1_ADDR) != RESET ){
 
@@ -68,7 +68,7 @@ int iic_check( i2c_dev_t *dev )
 
             while(READ_BIT(I2C_SR2(dev->handle), I2C_SR2_BUSY) != RESET){
 
-                if(delay < timestamp) return ERR_ERROR;
+                if(delay < systick) return ERR_ERROR;
                 wait();
             }
 
@@ -84,7 +84,7 @@ int iic_check( i2c_dev_t *dev )
 
             while(READ_BIT(I2C_SR2(dev->handle), I2C_SR2_BUSY) != RESET){
 
-                if(delay < timestamp) return ERR_ERROR;
+                if(delay < systick) return ERR_ERROR;
                 wait();
             }
 

@@ -3,10 +3,9 @@
 
 
 #define EEP_INIT_BYTE_DEF   0x55
-#define EEP_INIT_BYTE_ADDR  0x20
+#define EEP_INIT_BYTE_ADDR  0x20        // 1 baitas
 
-
-
+#define EEP_SYSENV_DATA     0x28        // sisteminiai kintamieji
 
 
 

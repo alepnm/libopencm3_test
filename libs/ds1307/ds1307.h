@@ -12,21 +12,11 @@
 typedef struct{
 
     i2c_dev_t   i2c_base;
-
-    struct _datetime{
-        uint8_t Seconds;
-        uint8_t Minutes;
-        uint8_t Hours;
-        uint8_t WeekDay;
-        uint8_t Date;
-        uint8_t Month;
-        uint8_t Year;
-    }datetime;
-
-    uint8_t one_sec_flag;
-    uint8_t need_to_update_datetime_flag;
-    uint8_t datetime_regs[7];
-    uint8_t bkp_regs[56];
+    struct _dt  datetime;
+    uint8_t     one_sec_flag;
+    uint8_t     need_to_update_datetime_flag;
+    uint8_t     datetime_regs[7];
+    uint8_t     bkp_regs[56];
 }rtc_t;
 
 extern rtc_t* ds1307;

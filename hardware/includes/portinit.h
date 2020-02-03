@@ -2,9 +2,7 @@
 #define MCUINIT_H_INCLUDED
 
 
-
-
-#include "defs.h"
+#include "globals.h"
 
 
 

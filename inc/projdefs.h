@@ -5,7 +5,6 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-
 typedef enum { RESET = 0, SET = !RESET } eStatus;
 typedef enum { DISABLE = 0, ENABLE = !DISABLE } eState;
 typedef enum { SUCCESS = 0, ERROR = !SUCCESS } eResult;

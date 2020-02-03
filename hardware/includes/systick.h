@@ -7,7 +7,7 @@
 
 #define systick_isr_handler SysTick_IRQHandler
 
-extern uint32_t timestamp;
+extern uint32_t systick;
 
 
 void systick_setup(void);
