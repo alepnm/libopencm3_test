@@ -95,8 +95,12 @@ void main_task(void *args)
         if( uxQueueMessagesWaiting(PortA->TxQueue) ) usart_port_handler( PortA );
         if( uxQueueMessagesWaiting(PortB->TxQueue) ) usart_port_handler( PortB );
 
+        if(UpdateDateTimeRequired){
 
-        rtc_process();
+            gpio_toggle(GPIOC, GPIO13);
+
+            UpdateDateTimeRequired = false;
+        }
 
 		taskYIELD();
 	}

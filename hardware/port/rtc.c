@@ -3,24 +3,23 @@
 #include "rtc.h"
 
 
-#define T100MS  0xFFFFFF9B
-#define T1000MS 0xFFFFFC17
+#define T60SEC  0xFFFFFFC3
 
 
+struct _dt datetime;
 
+volatile uint32_t rtc_timestamp = 0;
+volatile uint8_t UpdateDateTimeRequired = false;
 
 /*   */
 void rtc_init(void)
 {
     rtc_awake_from_off(RCC_LSE);
 
-    //rtc_set_prescale_val(16384);      // 500 ms
-    //rtc_set_counter_val(0xFFFFFFF0);
+    rtc_set_prescale_val(32768);        // 1 sec
+    rtc_set_counter_val(T60SEC);        // 60 sec
 
-    rtc_set_prescale_val(33);           // ~1 ms
-    rtc_set_counter_val(T1000MS);       // 1 sec
-
-	nvic_disable_irq(NVIC_RTC_IRQ);
+	nvic_enable_irq(NVIC_RTC_IRQ);
 	nvic_set_priority(NVIC_RTC_IRQ, 1);
 
     rtc_clear_flag(RTC_OW);
@@ -28,31 +27,27 @@ void rtc_init(void)
     rtc_clear_flag(RTC_SEC);
 
     rtc_interrupt_disable(RTC_ALR);
-	rtc_interrupt_disable(RTC_SEC);
+	rtc_interrupt_enable(RTC_SEC);
 	rtc_interrupt_disable(RTC_OW);
 
+
+
+	if(BKP_USER_REGISTER1 != 0xAA55){
+
+        pwr_disable_backup_domain_write_protect();
+
+
+        BKP_USER_REGISTER1 = 0xAA55;
+        pwr_enable_backup_domain_write_protect();
+	}
 }
 
 
 /*  */
-void rtc_process(void)
-{
-    if(rtc_check_flag(RTC_SEC)){
+int rtc_datetime_process(void){
 
-        rtc_clear_flag(RTC_SEC);
 
-        //gpio_toggle(GPIOC, GPIO13);
-    }
-
-    if(rtc_check_flag(RTC_OW)){
-
-        rtc_clear_flag(RTC_OW);
-
-        gpio_toggle(GPIOC, GPIO13);
-
-        rtc_set_counter_val(T100MS);
-
-    }
+    return 0;
 }
 
 
@@ -60,41 +55,24 @@ void rtc_process(void)
  IRQ RTC_SEC aktyvuojamas, kai preskaleris pasiekia 0 (skaiciuoja COUNT DOWN)
  IRQ RTC_OW aktyvuojamas, kai counter'is pasiekia 0 (skaiciuoja COUNT UP)
 */
-void rtc_isr_handler(void)
+void rtc_isr(void)
 {
     if(rtc_check_flag(RTC_OW)){
 
         rtc_clear_flag(RTC_OW);
-    }
 
+        rtc_set_counter_val(T60SEC);
+    }
 
     if(rtc_check_flag(RTC_SEC)){
 
         rtc_clear_flag(RTC_SEC);
 
-        //gpio_toggle(GPIOC, GPIO13);
+        rtc_timestamp++;
+
+        UpdateDateTimeRequired = true;
     }
 }
-
-/*  */
-int bkp_read_register(uint32_t reg, uint16_t* data){
-
-    *data = *(volatile uint32_t*)reg;
-
-    return 0;
-}
-
-int bkp_write_register(uint32_t reg, uint16_t data){
-
-    pwr_disable_backup_domain_write_protect();
-
-    *(volatile uint32_t*)reg = data;
-
-    pwr_enable_backup_domain_write_protect();
-
-    return 0;
-}
-
 
 
 

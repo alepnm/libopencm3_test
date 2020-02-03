@@ -2,8 +2,7 @@
 #include "globals.h"
 #include "tim.h"
 
-
-uint32_t systick = 0;
+volatile uint32_t systick = 0;
 
 
 /*  */
@@ -29,7 +28,8 @@ void tim2_isr(void)
 
 		timer_clear_flag(TIM2, TIM_DIER_UIE);
 
-		//gpio_toggle(GPIOC, GPIO13);
 		systick++;
+
+		//gpio_toggle(GPIOC, GPIO13);
 	}
 }

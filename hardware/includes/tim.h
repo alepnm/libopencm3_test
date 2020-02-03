@@ -8,10 +8,8 @@
 #include <libopencm3/stm32/gpio.h>
 
 
-#define tim2_isr TIM2_IRQHandler
+extern volatile uint32_t systick;
 
-extern uint32_t systick;
-
-void        tim2_init(void);
+void    tim2_init(void);
 
 #endif /* TIM_H_INCLUDED */

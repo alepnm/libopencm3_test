@@ -9,27 +9,20 @@
 
 
 
-#define rtc_isr_handler RTC_IRQHandler
-
-
 /* backup registers */
 #define BKP_USER_REGISTER1  BKP_DR1
 #define BKP_USER_REGISTER2  BKP_DR2
 #define BKP_USER_REGISTER3  BKP_DR3
 #define BKP_USER_REGISTER4  BKP_DR4
 // .....
-#define BKP_USER_REGISTER42 BKP_DR42
+#define BKP_USER_REGISTER20 BKP_DR20
 
 
-
-/*   */
-void rtc_init(void);
-void rtc_process(void);
-
+extern volatile uint32_t rtc_timestamp;
+extern volatile uint8_t UpdateDateTimeRequired;
 
 /*   */
-int bkp_read_register(uint32_t reg, uint16_t* data);
-int bkp_write_register(uint32_t reg, uint16_t data);
-
+void    rtc_init(void);
+int     rtc_datetime_process(void);
 
 #endif /* RTC_H_INCLUDED */

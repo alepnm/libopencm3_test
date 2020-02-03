@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <EmBitz_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="hardware\port\iic.c" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="hardware\port\iic.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="36" topLine="0" />
+			<Cursor1 position="112" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="hardware\port\rtc.c" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="hardware\port\rtc.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="372" topLine="6" />
+			<Cursor1 position="1196" topLine="48" />
 		</Cursor>
 	</File>
-	<File name="hardware\port\tim.c" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="hardware\port\tim.c" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="290" topLine="0" />
+			<Cursor1 position="606" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="inc\ee_memorymap.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="inc\ee_memorymap.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="262" topLine="0" />
 		</Cursor>
@@ -28,12 +28,12 @@
 	</File>
 	<File name="inc\globals.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="581" topLine="3" />
+			<Cursor1 position="289" topLine="10" />
 		</Cursor>
 	</File>
-	<File name="inc\projdefs.h" open="1" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="inc\projdefs.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="104" topLine="0" />
+			<Cursor1 position="424" topLine="7" />
 		</Cursor>
 	</File>
 	<File name="inc\system_stm32f10x.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -77,7 +77,7 @@
 			<Collapse line="92" />
 		</Folding>
 	</File>
-	<File name="libs\mcp23017\mcp.h" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="libs\mcp23017\mcp.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="579" topLine="0" />
 		</Cursor>
@@ -87,9 +87,9 @@
 			<Cursor1 position="1175" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\main.c" open="1" top="1" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\main.c" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="687" topLine="44" />
+			<Cursor1 position="1992" topLine="36" />
 		</Cursor>
 	</File>
 	<File name="src\system_stm32f10x.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -107,7 +107,7 @@
 			<Cursor1 position="175" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\tasks\task3.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\tasks\task3.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="393" topLine="0" />
 		</Cursor>
@@ -117,9 +117,9 @@
 			<Cursor1 position="384" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="startup\startup_stm32f10x_md.S" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="startup\startup_stm32f10x_md.S" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="11214" topLine="220" />
+			<Cursor1 position="8338" topLine="220" />
 		</Cursor>
 	</File>
 	<File name="..\FreeRTOS-Kernel\croutine.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -144,7 +144,7 @@
 	</File>
 	<File name="..\FreeRTOS-Kernel\portable\GCC\ARM_CM3\port.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="15483" topLine="374" />
+			<Cursor1 position="14813" topLine="383" />
 		</Cursor>
 	</File>
 	<File name="..\FreeRTOS-Kernel\portable\GCC\ARM_CM3\portmacro.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -154,12 +154,12 @@
 	</File>
 	<File name="..\FreeRTOS-Kernel\queue.c" open="0" top="0" tabpos="20" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="66668" topLine="1866" />
+			<Cursor1 position="66668" topLine="1901" />
 		</Cursor>
 	</File>
 	<File name="..\FreeRTOS-Kernel\tasks.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1690" topLine="6" />
+			<Cursor1 position="101383" topLine="2963" />
 		</Cursor>
 	</File>
 	<File name="..\libopencm3\lib\cm3\nvic.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -177,6 +177,11 @@
 			<Cursor1 position="4895" topLine="154" />
 		</Cursor>
 	</File>
+	<File name="..\libopencm3\lib\stm32\common\pwr_common_v1.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4927" topLine="176" />
+		</Cursor>
+	</File>
 	<File name="..\libopencm3\lib\stm32\common\timer_common_all.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="20488" topLine="630" />
@@ -192,9 +197,14 @@
 			<Cursor1 position="0" topLine="77" />
 		</Cursor>
 	</File>
+	<File name="..\libopencm3\lib\stm32\f1\gpio.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1668" topLine="30" />
+		</Cursor>
+	</File>
 	<File name="..\libopencm3\lib\stm32\f1\rtc.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="9195" topLine="328" />
+			<Cursor1 position="4784" topLine="121" />
 		</Cursor>
 	</File>
 	<File name="..\libopencm3\lib\stm32\f1\timer.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">

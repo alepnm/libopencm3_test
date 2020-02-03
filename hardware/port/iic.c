@@ -2,11 +2,11 @@
 #include "globals.h"
 #include "iic.h"
 
+/*  */
+extern volatile uint32_t systick;
 
+/*  */
 static uint8_t i2c_hw_init_flag = 0;
-
-
-//static int iic_check( i2c_dev_t *dev ) __attribute__((unused));
 
 
 /*  */

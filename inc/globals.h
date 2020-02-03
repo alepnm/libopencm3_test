@@ -25,6 +25,7 @@ struct _status{
 extern  struct _status sys_status;
 
 
+
 struct _dt{
     uint8_t Seconds;
     uint8_t Minutes;
@@ -36,5 +37,4 @@ struct _dt{
 }datetime;
 
 extern struct _dt datetime;
-
 #endif /* GLOBALS_H_INCLUDED */

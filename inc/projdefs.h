@@ -31,6 +31,7 @@ enum { STATE_DISABLED = 0, STATE_ENABLED, STATE_READY, STATE_BUSY, STATE_TIMEOUT
 #define usart2_isr          USART2_IRQHandler
 #define usart3_isr          USART3_IRQHandler
 #define rtc_isr             RTC_IRQHandler
+#define tim2_isr            TIM2_IRQHandler
 #define adc1_2_isr          ADC1_2_IRQHandler
 
 
