@@ -18,11 +18,12 @@
 #define BKP_USER_REGISTER20 BKP_DR20
 
 
-extern volatile uint32_t rtc_timestamp;
+extern volatile uint32_t rtc_counter;
 extern volatile uint8_t UpdateDateTimeRequired;
 
 /*   */
-void    rtc_init(void);
-int     rtc_datetime_process(void);
+void        rtc_init(void);
+struct _dt* rtc_datetime_init(uint32_t rtc_cnt);
+int         rtc_datetime_process(void);
 
 #endif /* RTC_H_INCLUDED */

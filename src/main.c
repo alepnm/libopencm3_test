@@ -95,9 +95,12 @@ void main_task(void *args)
         if( uxQueueMessagesWaiting(PortA->TxQueue) ) usart_port_handler( PortA );
         if( uxQueueMessagesWaiting(PortB->TxQueue) ) usart_port_handler( PortB );
 
+
         if(UpdateDateTimeRequired){
 
             gpio_toggle(GPIOC, GPIO13);
+
+            rtc_datetime_process();
 
             UpdateDateTimeRequired = false;
         }
@@ -153,7 +156,7 @@ int main(void)
 
 
     /*  */
-	sys_env.pdt = &datetime;
+    sys_env.pdt = rtc_datetime_init(123456789);
     sys_env.porta_config = &(PortA->config);
     sys_env.portb_config = &(PortB->config);
 

@@ -34,7 +34,6 @@ struct _dt{
     uint8_t Date;
     uint8_t Month;
     uint8_t Year;
-}datetime;
+};
 
-extern struct _dt datetime;
 #endif /* GLOBALS_H_INCLUDED */
