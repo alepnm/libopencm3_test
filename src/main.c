@@ -17,6 +17,7 @@
 #include "tim.h"
 #include "usart.h"
 #include "rtc.h"
+#include "calendar.h"
 
 
 #include "e24lcxx.h"
@@ -100,7 +101,7 @@ void main_task(void *args)
 
             gpio_toggle(GPIOC, GPIO13);
 
-            rtc_time_process();
+            cal_time_process();
 
             UpdateDateTimeRequired = false;
         }
@@ -156,7 +157,7 @@ int main(void)
 
 
     /*  */
-    sys_env.pdt = rtc_datetime_init(timestamp);
+    sys_env.pdt = &datetime;
     sys_env.porta_config = &(PortA->config);
     sys_env.portb_config = &(PortB->config);
 

@@ -95,6 +95,7 @@
 		<Unit filename="hardware\port\usart.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="inc\calendar.h" />
 		<Unit filename="inc\ee_memorymap.h" />
 		<Unit filename="inc\FreeRTOSConfig.h" />
 		<Unit filename="inc\globals.h" />
@@ -109,6 +110,9 @@
 		</Unit>
 		<Unit filename="libs\mcp23017\mcp.h" />
 		<Unit filename="pastabos.txt" />
+		<Unit filename="src\calendar.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="src\main.c">
 			<Option compilerVar="CC" />
 		</Unit>

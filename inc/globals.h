@@ -25,16 +25,4 @@ struct _status{
 extern  struct _status sys_status;
 
 
-
-struct _dt{
-    uint8_t Seconds     :6;
-    uint8_t Minutes     :6;
-    uint8_t Hours       :5;
-    uint8_t WeekDay     :3;
-    uint8_t Day         :5;
-    uint8_t Month       :4;
-    uint8_t Year        :7;
-    uint8_t IsLeapYear  :1;
-};
-
 #endif /* GLOBALS_H_INCLUDED */
