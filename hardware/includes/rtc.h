@@ -22,5 +22,6 @@ extern volatile uint8_t UpdateDateTimeRequired;
 
 /*   */
 void    rtc_init(void);
+void    rtc_backup_datetime(void);
 
 #endif /* RTC_H_INCLUDED */

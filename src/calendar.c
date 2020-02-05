@@ -1,6 +1,6 @@
 
 #include <libopencm3/stm32/rtc.h>
-#include <libopencm3/stm32/f1/bkp.h>
+//#include <libopencm3/stm32/f1/bkp.h>
 
 
 #include "calendar.h"
@@ -190,6 +190,8 @@ int cal_time_process(void)
             }
         }
     }
+
+    rtc_backup_datetime();
 
     return 0;
 }
