@@ -189,7 +189,7 @@
 
 1579031284 c:\work\git\libopencm3_projects\libopencm3\include\libopencm3\cm3\memorymap.h
 
-1580925423 source:c:\work\git\libopencm3_projects\libopencm3\lib\cm3\nvic.c
+1580896760 source:c:\work\git\libopencm3_projects\libopencm3\lib\cm3\nvic.c
 	<libopencm3/cm3/nvic.h>
 	<libopencm3/cm3/scb.h>
 
@@ -627,7 +627,7 @@
 	<libopencm3/stm32/common/adc_common_v2.h>
 	<libopencm3/stm32/common/adc_common_v2_single.h>
 
-1580925423 source:c:\work\git\libopencm3_projects\libopencm3\lib\stm32\common\crc_common_all.c
+1580896760 source:c:\work\git\libopencm3_projects\libopencm3\lib\stm32\common\crc_common_all.c
 	<libopencm3/stm32/crc.h>
 
 1579031284 c:\work\git\libopencm3_projects\libopencm3\include\libopencm3\stm32\crc.h
@@ -650,7 +650,7 @@
 1579031284 c:\work\git\libopencm3_projects\libopencm3\include\libopencm3\stm32\common\crc_v2.h
 	<libopencm3/stm32/common/crc_common_all.h>
 
-1580925423 c:\work\git\libopencm3_projects\libopencm3\include\libopencm3\stm32\common\crc_common_all.h
+1580896760 c:\work\git\libopencm3_projects\libopencm3\include\libopencm3\stm32\common\crc_common_all.h
 
 1579031284 c:\work\git\libopencm3_projects\libopencm3\include\libopencm3\stm32\f1\crc.h
 	<libopencm3/stm32/common/crc_common_all.h>
@@ -1475,7 +1475,7 @@
 	<libopencm3/stm32/desig.h>
 	<libopencm3/stm32/flash.h>
 
-1580925423 c:\work\git\libopencm3_projects\libopencm3\include\libopencm3\stm32\desig.h
+1580896760 c:\work\git\libopencm3_projects\libopencm3\include\libopencm3\stm32\desig.h
 	<libopencm3/cm3/common.h>
 	<libopencm3/stm32/memorymap.h>
 
@@ -3493,7 +3493,7 @@
 
 1579031284 c:\users\testas\desktop\libopencm3_projects\libopencm3\include\libopencm3\cm3\memorymap.h
 
-1579031284 source:c:\users\testas\desktop\libopencm3_projects\libopencm3\lib\cm3\nvic.c
+1580896760 source:c:\users\testas\desktop\libopencm3_projects\libopencm3\lib\cm3\nvic.c
 	<libopencm3/cm3/nvic.h>
 	<libopencm3/cm3/scb.h>
 
@@ -3931,7 +3931,7 @@
 	<libopencm3/stm32/common/adc_common_v2.h>
 	<libopencm3/stm32/common/adc_common_v2_single.h>
 
-1579031284 source:c:\users\testas\desktop\libopencm3_projects\libopencm3\lib\stm32\common\crc_common_all.c
+1580896760 source:c:\users\testas\desktop\libopencm3_projects\libopencm3\lib\stm32\common\crc_common_all.c
 	<libopencm3/stm32/crc.h>
 
 1579031284 c:\users\testas\desktop\libopencm3_projects\libopencm3\include\libopencm3\stm32\crc.h
@@ -3954,7 +3954,7 @@
 1579031284 c:\users\testas\desktop\libopencm3_projects\libopencm3\include\libopencm3\stm32\common\crc_v2.h
 	<libopencm3/stm32/common/crc_common_all.h>
 
-1579031284 c:\users\testas\desktop\libopencm3_projects\libopencm3\include\libopencm3\stm32\common\crc_common_all.h
+1580896760 c:\users\testas\desktop\libopencm3_projects\libopencm3\include\libopencm3\stm32\common\crc_common_all.h
 
 1579031284 c:\users\testas\desktop\libopencm3_projects\libopencm3\include\libopencm3\stm32\f1\crc.h
 	<libopencm3/stm32/common/crc_common_all.h>
@@ -4779,7 +4779,7 @@
 	<libopencm3/stm32/desig.h>
 	<libopencm3/stm32/flash.h>
 
-1579031284 c:\users\testas\desktop\libopencm3_projects\libopencm3\include\libopencm3\stm32\desig.h
+1580896760 c:\users\testas\desktop\libopencm3_projects\libopencm3\include\libopencm3\stm32\desig.h
 	<libopencm3/cm3/common.h>
 	<libopencm3/stm32/memorymap.h>
 
@@ -7199,25 +7199,25 @@
 	"gpio.h"
 	"tim.h"
 
-1580747039 c:\work\git\libopencm3_projects\00_locm_test\inc\freertosconfig.h
+1580709994 c:\work\git\libopencm3_projects\00_locm_test\inc\freertosconfig.h
 
 1580709994 c:\work\git\libopencm3_projects\00_locm_test\libs\port\gpio\gpio.h
 	<libopencm3/stm32/rcc.h>
 	<libopencm3/stm32/gpio.h>
 	<libopencm3/cm3/nvic.h>
 
-1580747039 source:c:\work\git\libopencm3_projects\00_locm_test\libs\eeprom\e24lcxx.c
+1580709994 source:c:\work\git\libopencm3_projects\00_locm_test\libs\eeprom\e24lcxx.c
 	"e24lcxx.h"
 	"ee_memorymap.h"
 
-1580747039 c:\work\git\libopencm3_projects\00_locm_test\libs\eeprom\e24lcxx.h
+1580709994 c:\work\git\libopencm3_projects\00_locm_test\libs\eeprom\e24lcxx.h
 	"globals.h"
 	"iic.h"
 
-1580747039 source:c:\work\git\libopencm3_projects\00_locm_test\libs\mcp23017\mcp.c
+1580709994 source:c:\work\git\libopencm3_projects\00_locm_test\libs\mcp23017\mcp.c
 	"mcp.h"
 
-1580747039 c:\work\git\libopencm3_projects\00_locm_test\libs\mcp23017\mcp.h
+1580709994 c:\work\git\libopencm3_projects\00_locm_test\libs\mcp23017\mcp.h
 	"globals.h"
 	"iic.h"
 
@@ -7252,34 +7252,34 @@
 	"queue.h"
 	"globals.h"
 
-1580747039 source:c:\work\git\libopencm3_projects\00_locm_test\src\system_stm32f10x.c
+1580709994 source:c:\work\git\libopencm3_projects\00_locm_test\src\system_stm32f10x.c
 	"stm32f10x.h"
 
-1580747039 c:\work\git\libopencm3_projects\00_locm_test\inc\stm32f10x.h
+1580709994 c:\work\git\libopencm3_projects\00_locm_test\inc\stm32f10x.h
 	"core_cm3.h"
 	"system_stm32f10x.h"
 	<stdint.h>
 	"stm32f10x_conf.h"
 
-1580747039 c:\work\git\libopencm3_projects\00_locm_test\inc\system_stm32f10x.h
+1580709994 c:\work\git\libopencm3_projects\00_locm_test\inc\system_stm32f10x.h
 
-1580747039 source:c:\work\git\libopencm3_projects\00_locm_test\src\tasks\task1.c
+1580709994 source:c:\work\git\libopencm3_projects\00_locm_test\src\tasks\task1.c
 	"utasks.h"
 
-1580747039 c:\work\git\libopencm3_projects\00_locm_test\src\tasks\utasks.h
+1580709994 c:\work\git\libopencm3_projects\00_locm_test\src\tasks\utasks.h
 	"FreeRTOS.h"
 	"queue.h"
 	"task.h"
 	"globals.h"
 	"usart.h"
 
-1580747039 source:c:\work\git\libopencm3_projects\00_locm_test\src\tasks\task2.c
+1580709994 source:c:\work\git\libopencm3_projects\00_locm_test\src\tasks\task2.c
 	"utasks.h"
 
-1580747039 source:c:\work\git\libopencm3_projects\00_locm_test\src\tasks\task3.c
+1580743570 source:c:\work\git\libopencm3_projects\00_locm_test\src\tasks\task3.c
 	"utasks.h"
 
-1580747039 source:c:\work\git\libopencm3_projects\00_locm_test\startup\startup_stm32f10x_md.s
+1580709994 source:c:\work\git\libopencm3_projects\00_locm_test\startup\startup_stm32f10x_md.s
 
 1580709994 source:c:\work\git\libopencm3_projects\00_locm_test\libs\port\rtc\rtc.c
 	"globals.h"
@@ -7292,7 +7292,7 @@
 	<libopencm3/stm32/rtc.h>
 	<libopencm3/stm32/f1/bkp.h>
 
-1580925390 source:c:\work\git\libopencm3_projects\00_locm_test\src\main.c
+1580895359 source:c:\work\git\libopencm3_projects\00_locm_test\src\main.c
 	<libopencm3/cm3/common.h>
 	<libopencm3/cm3/cortex.h>
 	<libopencm3/cm3/nvic.h>
@@ -7320,7 +7320,7 @@
 
 1580136588 c:\work\git\libopencm3_projects\00_locm_test\inc\ee_defines.h
 
-1580747039 c:\work\git\libopencm3_projects\00_locm_test\inc\ee_memorymap.h
+1580723359 c:\work\git\libopencm3_projects\00_locm_test\inc\ee_memorymap.h
 
 1580053765 source:c:\users\testas\desktop\libopencm3_projects\00_locm_test\libs\ds1307\ds1307.c
 	<libopencm3/stm32/gpio.h>
@@ -7451,7 +7451,7 @@
 
 1580709994 source:c:\users\testas\desktop\libopencm3_projects\00_locm_test\startup\startup_stm32f10x_md.s
 
-1580804721 source:c:\users\testas\desktop\libopencm3_projects\00_locm_test\src\main.c
+1580895359 source:c:\users\testas\desktop\libopencm3_projects\00_locm_test\src\main.c
 	<libopencm3/cm3/common.h>
 	<libopencm3/cm3/cortex.h>
 	<libopencm3/cm3/nvic.h>
@@ -7464,9 +7464,10 @@
 	"tim.h"
 	"usart.h"
 	"rtc.h"
+	"calendar.h"
 	"e24lcxx.h"
 
-1580941711 c:\work\git\libopencm3_projects\00_locm_test\inc\projdefs.h
+1580968514 c:\work\git\libopencm3_projects\00_locm_test\inc\projdefs.h
 	<stdint.h>
 	<stdlib.h>
 
@@ -7480,24 +7481,24 @@
 	"projdefs.h"
 	"gpio.h"
 
-1580925390 c:\work\git\libopencm3_projects\00_locm_test\inc\globals.h
+1580888768 c:\work\git\libopencm3_projects\00_locm_test\inc\globals.h
 	"projdefs.h"
 	"gpio.h"
 
-1580747039 source:c:\work\git\libopencm3_projects\00_locm_test\hardware\port\gpio.c
+1580709994 source:c:\work\git\libopencm3_projects\00_locm_test\hardware\port\gpio.c
 	"globals.h"
 	"gpio.h"
 
-1580747039 c:\work\git\libopencm3_projects\00_locm_test\hardware\includes\gpio.h
+1580709994 c:\work\git\libopencm3_projects\00_locm_test\hardware\includes\gpio.h
 	<libopencm3/stm32/rcc.h>
 	<libopencm3/stm32/gpio.h>
 	<libopencm3/cm3/nvic.h>
 
-1580766753 source:c:\work\git\libopencm3_projects\00_locm_test\hardware\port\iic.c
+1580971121 source:c:\work\git\libopencm3_projects\00_locm_test\hardware\port\iic.c
 	"globals.h"
 	"iic.h"
 
-1580747039 c:\work\git\libopencm3_projects\00_locm_test\hardware\includes\iic.h
+1580709994 c:\work\git\libopencm3_projects\00_locm_test\hardware\includes\iic.h
 	<libopencm3/cm3/systick.h>
 	<libopencm3/stm32/rcc.h>
 	<libopencm3/stm32/i2c.h>
@@ -7508,23 +7509,23 @@
 	"gpio.h"
 	"tim.h"
 
-1580766641 c:\work\git\libopencm3_projects\00_locm_test\hardware\includes\tim.h
+1580795207 c:\work\git\libopencm3_projects\00_locm_test\hardware\includes\tim.h
 	<libopencm3/cm3/nvic.h>
 	<libopencm3/stm32/rcc.h>
 	<libopencm3/stm32/timer.h>
 	<libopencm3/stm32/gpio.h>
 
-1580942795 source:c:\work\git\libopencm3_projects\00_locm_test\hardware\port\rtc.c
-	"globals.h"
-	"rtc.h"
-	"calendar.h"
-
-1580942804 c:\work\git\libopencm3_projects\00_locm_test\hardware\includes\rtc.h
+1580973885 source:c:\work\git\libopencm3_projects\00_locm_test\hardware\port\rtc.c
 	<libopencm3/stm32/rcc.h>
 	<libopencm3/stm32/gpio.h>
 	<libopencm3/cm3/nvic.h>
 	<libopencm3/stm32/rtc.h>
 	<libopencm3/stm32/f1/bkp.h>
+	"globals.h"
+	"rtc.h"
+	"calendar.h"
+
+1580973020 c:\work\git\libopencm3_projects\00_locm_test\hardware\includes\rtc.h
 
 1580709994 source:c:\work\git\libopencm3_projects\00_locm_test\hardware\port\systick.c
 	"systick.h"
@@ -7533,16 +7534,16 @@
 	<libopencm3/cm3/nvic.h>
 	<libopencm3/cm3/systick.h>
 
-1580767322 source:c:\work\git\libopencm3_projects\00_locm_test\hardware\port\tim.c
+1580795207 source:c:\work\git\libopencm3_projects\00_locm_test\hardware\port\tim.c
 	"globals.h"
 	"tim.h"
 
-1580747039 source:c:\work\git\libopencm3_projects\00_locm_test\hardware\port\usart.c
+1580709994 source:c:\work\git\libopencm3_projects\00_locm_test\hardware\port\usart.c
 	<libopencm3/stm32/rcc.h>
 	<libopencm3/cm3/nvic.h>
 	"usart.h"
 
-1580747039 c:\work\git\libopencm3_projects\00_locm_test\hardware\includes\usart.h
+1580709994 c:\work\git\libopencm3_projects\00_locm_test\hardware\includes\usart.h
 	<libopencm3/stm32/gpio.h>
 	<libopencm3/stm32/usart.h>
 	"FreeRTOS.h"
@@ -7566,11 +7567,11 @@
 	"globals.h"
 	"gpio.h"
 
-1580804504 c:\users\testas\desktop\libopencm3_projects\00_locm_test\inc\globals.h
+1580888768 c:\users\testas\desktop\libopencm3_projects\00_locm_test\inc\globals.h
 	"projdefs.h"
 	"gpio.h"
 
-1580795207 c:\users\testas\desktop\libopencm3_projects\00_locm_test\inc\projdefs.h
+1580968514 c:\users\testas\desktop\libopencm3_projects\00_locm_test\inc\projdefs.h
 	<stdint.h>
 	<stdlib.h>
 
@@ -7608,7 +7609,7 @@
 	<libopencm3/stm32/timer.h>
 	<libopencm3/stm32/gpio.h>
 
-1580795207 source:c:\users\testas\desktop\libopencm3_projects\00_locm_test\hardware\port\iic.c
+1580971121 source:c:\users\testas\desktop\libopencm3_projects\00_locm_test\hardware\port\iic.c
 	"globals.h"
 	"iic.h"
 
@@ -7616,16 +7617,17 @@
 	"globals.h"
 	"tim.h"
 
-1580805082 c:\users\testas\desktop\libopencm3_projects\00_locm_test\hardware\includes\rtc.h
+1580973020 c:\users\testas\desktop\libopencm3_projects\00_locm_test\hardware\includes\rtc.h
+
+1580989396 source:c:\users\testas\desktop\libopencm3_projects\00_locm_test\hardware\port\rtc.c
 	<libopencm3/stm32/rcc.h>
 	<libopencm3/stm32/gpio.h>
 	<libopencm3/cm3/nvic.h>
 	<libopencm3/stm32/rtc.h>
 	<libopencm3/stm32/f1/bkp.h>
-
-1580805430 source:c:\users\testas\desktop\libopencm3_projects\00_locm_test\hardware\port\rtc.c
 	"globals.h"
 	"rtc.h"
+	"calendar.h"
 
 1580835706 d:\projects\libopencm3_projects\00_locm_test\hardware\includes\gpio.h
 	<libopencm3/stm32/rcc.h>
@@ -7684,11 +7686,19 @@
 	"globals.h"
 	"rtc.h"
 
-1580925390 c:\work\git\libopencm3_projects\00_locm_test\inc\calendar.h
+1580974373 c:\work\git\libopencm3_projects\00_locm_test\inc\calendar.h
 	"projdefs.h"
-	"rtc.h"
 
-1580943022 source:c:\work\git\libopencm3_projects\00_locm_test\src\calendar.c
+1580974373 source:c:\work\git\libopencm3_projects\00_locm_test\src\calendar.c
 	<libopencm3/stm32/rtc.h>
 	"calendar.h"
+	"rtc.h"
+
+1580989428 c:\users\testas\desktop\libopencm3_projects\00_locm_test\inc\calendar.h
+	"projdefs.h"
+
+1580989375 source:c:\users\testas\desktop\libopencm3_projects\00_locm_test\src\calendar.c
+	<libopencm3/stm32/rtc.h>
+	"calendar.h"
+	"rtc.h"
 

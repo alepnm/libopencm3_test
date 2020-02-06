@@ -94,6 +94,8 @@ int iic_check( i2c_dev_t *dev )
         }
 
     }while(trials--);
+
+    return ERR_NONE;
 }
 
 

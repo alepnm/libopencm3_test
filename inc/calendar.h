@@ -2,11 +2,13 @@
 #define CALENDAR_H_INCLUDED
 
 #include "projdefs.h"
-#include "rtc.h"
+
+/* Config registro struktura */
 
 
 /*  */
 struct _dt{
+    uint8_t Config      :8;
     uint8_t Seconds     :6;
     uint8_t Minutes     :6;
     uint8_t Hours       :5;
@@ -29,5 +31,7 @@ extern const uint8_t days_in_month[12];
 
 int cal_datetime_init(uint32_t rtc_cnt, struct _dt* dt);
 int cal_time_process(void);
+int cal_date_process(void);
+
 
 #endif /* CALENDAR_H_INCLUDED */

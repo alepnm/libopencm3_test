@@ -1,9 +1,9 @@
 
 #include <libopencm3/stm32/rtc.h>
-//#include <libopencm3/stm32/f1/bkp.h>
-
 
 #include "calendar.h"
+#include "rtc.h"
+
 
 struct _dt datetime = {0};
 static uint8_t SummerTimeCorrectionFlag = false;   // saugiklis nuo pakartotinos laiko korekcijos
@@ -17,49 +17,47 @@ const char mon_arr_lt[12][10] = {"Sausis", "Vasaris", "Kovas", "Balandis", "Gegu
 const uint8_t days_in_month[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
 
-
-
-/* grazinam pointeri i datetime struktura */
-int cal_datetime_init(uint32_t rtc_cnt, struct _dt* dt)
+/*  */
+static int cal_summer_time_correction(void)
 {
+    switch(datetime.Month)
+    {
+    case 2: // kovas
+        datetime.Hours -= 1;
+        break;
+    case 9: // spalis
+        datetime.Hours += 1;
+        break;
+    }
 
-    /*
-    1. Reikia grazinti is EEPROM datetime strukturos turini
-    2. Reikia perskaiciuoti RTC kounteri i datos delta ir prideti ja prie nuskaitytos is EEPROM datos
-    */
+    SummerTimeCorrectionFlag = true;
+
+    return SUCCESS;
+}
 
 
-    dt->Seconds = 30;//(rtc_cnt%3600)%60;
-    dt->Minutes = 59;//(rtc_cnt%3600)/60;
-    dt->Hours = 23;//rtc_cnt/3600;
-    dt->WeekDay = 3;
-    dt->Day = 31;
-    dt->Month = 11;
-    dt->Year = 20;
+static int cal_year_is_leap(void){
 
-    if( !((2000 + dt->Year)%400) ) dt->IsLeapYear = true;
+    if( !((2000 + datetime.Year)%400) ) datetime.IsLeapYear = true;
     else
     {
-        if( !((2000 + dt->Year)%100) ) dt->IsLeapYear = false;
+        if( !((2000 + datetime.Year)%100) ) datetime.IsLeapYear = false;
         else
         {
-            if( !((2000 + dt->Year)%4) ) dt->IsLeapYear = true;
+            if( !((2000 + datetime.Year)%4) ) datetime.IsLeapYear = true;
             else
             {
-                dt->IsLeapYear = false;
+                datetime.IsLeapYear = false;
             }
         }
     }
 
-    return 0;
-};
-
+    return SUCCESS;
+}
 
 /*  */
 int cal_date_process(void)
 {
-    timestamp = rtc_get_counter_val();
-
     if(datetime.WeekDay < 6) datetime.WeekDay++;
     else datetime.WeekDay = 0;
 
@@ -104,7 +102,7 @@ int cal_date_process(void)
                 datetime.Month = 0;
                 datetime.Year++;
 
-                if(datetime.IsLeapYear == true) datetime.IsLeapYear = false;
+                cal_year_is_leap();
             }
             else
             {
@@ -126,33 +124,8 @@ int cal_date_process(void)
         break;
     }
 
-//rtc_set_counter_val(0);
-
-    return 0;
+    return SUCCESS;
 }
-
-
-int cal_summer_time_correction(void)
-{
-    switch(datetime.Month)
-    {
-    case 2: // kovas
-        datetime.Hours -= 1;
-        break;
-    case 9: // spalis
-        datetime.Hours += 1;
-        break;
-    }
-
-    SummerTimeCorrectionFlag = true;
-
-    return 0;
-}
-
-
-
-
-
 
 
 /*  */
@@ -193,7 +166,5 @@ int cal_time_process(void)
 
     rtc_backup_datetime();
 
-    return 0;
+    return SUCCESS;
 }
-
-
