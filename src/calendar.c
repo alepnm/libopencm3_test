@@ -1,6 +1,7 @@
 
 #include <libopencm3/stm32/rtc.h>
 
+#include "globals.h"
 #include "calendar.h"
 #include "rtc.h"
 
@@ -36,6 +37,7 @@ static int cal_summer_time_correction(void)
 }
 
 
+/*  */
 static int cal_year_is_leap(void){
 
     if( !((2000 + datetime.Year)%400) ) datetime.IsLeapYear = true;
@@ -55,8 +57,9 @@ static int cal_year_is_leap(void){
     return SUCCESS;
 }
 
+
 /*  */
-int cal_date_process(void)
+int cal_date_update(void)
 {
     if(datetime.WeekDay < 6) datetime.WeekDay++;
     else datetime.WeekDay = 0;
@@ -129,14 +132,17 @@ int cal_date_process(void)
 
 
 /*  */
-int cal_time_process(void)
+int cal_time_update(void)
 {
     if(datetime.Seconds < 59) datetime.Seconds++;
     else
     {
         datetime.Seconds = 0;
 
-        if(datetime.Minutes < 59) datetime.Minutes++;
+        if(datetime.Minutes < 59){
+            datetime.Minutes++;
+            sys_status.wtime++;
+        }
         else
         {
             datetime.Minutes = 0;
@@ -157,7 +163,7 @@ int cal_time_process(void)
             else
             {
                 datetime.Hours = 0;
-                cal_date_process();
+                cal_date_update();
 
                 SummerTimeCorrectionFlag = false;
             }

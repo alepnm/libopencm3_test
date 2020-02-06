@@ -8,7 +8,7 @@
 
 /*  */
 struct _dt{
-    uint8_t Config      :8;
+    uint8_t Config      :8; // Clock/Calendar config bits
     uint8_t Seconds     :6;
     uint8_t Minutes     :6;
     uint8_t Hours       :5;
@@ -20,6 +20,7 @@ struct _dt{
 };
 
 extern struct _dt datetime;
+extern uint16_t WTime;
 
 
 extern const char wday_array_en[7][10];
@@ -30,8 +31,8 @@ extern const uint8_t days_in_month[12];
 
 
 int cal_datetime_init(uint32_t rtc_cnt, struct _dt* dt);
-int cal_time_process(void);
-int cal_date_process(void);
+int cal_time_update(void);
+int cal_date_update(void);
 
 
 #endif /* CALENDAR_H_INCLUDED */

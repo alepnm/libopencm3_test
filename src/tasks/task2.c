@@ -1,5 +1,6 @@
 
 #include "utasks.h"
+#include "adc.h"
 
 
 void task2(void *args)
@@ -13,6 +14,8 @@ void task2(void *args)
 	for (;;) {
 
 		//SendStringToQueue( PortA->TxQueue, sms);
+
+        adc_start_conversion();
 
 		vTaskDelay(100);
 	}

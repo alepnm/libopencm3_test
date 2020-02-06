@@ -80,6 +80,10 @@
 			<Add option="-eb_lib=n" />
 			<Add option="-eb_start_files" />
 		</Linker>
+		<Unit filename="hardware\includes\adc.h" />
+		<Unit filename="hardware\port\adc.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="hardware\port\gpio.c">
 			<Option compilerVar="CC" />
 		</Unit>

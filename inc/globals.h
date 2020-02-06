@@ -19,7 +19,7 @@
  */
 struct _status{
     uint32_t    status;
-
+    uint16_t    wtime;
 }sys_status;
 
 extern  struct _status sys_status;

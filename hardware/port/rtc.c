@@ -12,8 +12,10 @@
 /* backup registers                                 MSB         |       LSB */
 #define BKP_USER_REGISTER1  BKP_DR1     //    init register[8]  |      config[8]
 #define BKP_USER_REGISTER2  BKP_DR2     //       seconds[6]     | leap_year[1]:year[7]
-#define BKP_USER_REGISTER3  BKP_DR3     //       minutes[6]     |    hours[5]
+#define BKP_USER_REGISTER3  BKP_DR3     //       minutes[6]     |       hours[5]
 #define BKP_USER_REGISTER4  BKP_DR4     //         day[5]       |  weekday[3]:month[5]
+#define BKP_USER_REGISTER5  BKP_DR5     //                 wtime_minutes
+#define BKP_USER_REGISTER6  BKP_DR6
 // .....
 #define BKP_USER_REGISTER20 BKP_DR20
 
@@ -39,10 +41,11 @@ int rtc_backup_datetime(void)
 {
     pwr_disable_backup_domain_write_protect();
 
-    BKP_USER_REGISTER1 = (uint8_t)(BKP_USER_REGISTER1&0xFF00) | (datetime.Config&0x00FF);
+    BKP_USER_REGISTER1 = (BKP_USER_REGISTER1&0xFF00)    | (datetime.Config&0x00FF);
     BKP_USER_REGISTER2 = ((datetime.Seconds<<8)&0x3F00) | ((datetime.IsLeapYear<<7)&0x0080) | (datetime.Year&0x007F);
     BKP_USER_REGISTER3 = ((datetime.Minutes<<8)&0x3F00) | (datetime.Hours&0x001F);
     BKP_USER_REGISTER4 = ((datetime.Day<<8)&0x1F00)     | ((datetime.WeekDay<<5)&0x00E0)    | (datetime.Month&0x000F);
+    BKP_USER_REGISTER5 = sys_status.wtime;
 
     pwr_enable_backup_domain_write_protect();
 
@@ -67,22 +70,31 @@ void rtc_init(void)
     rtc_interrupt_enable(RTC_SEC);
 
     /* backup registrai */
-    if( 0xA5 != (uint8_t)((BKP_USER_REGISTER1&0xFF00)>>8) )
+    if( (uint8_t)((BKP_USER_REGISTER1&0xFF00)>>8) != 0xA5 )
     {
         rtc_set_counter_val(0);
 
         pwr_disable_backup_domain_write_protect();
 
+        BKP_USER_REGISTER1 = 0;
+        BKP_USER_REGISTER2 = 0;
+        BKP_USER_REGISTER3 = 0;
+        BKP_USER_REGISTER4 = 0;
+        BKP_USER_REGISTER5 = 0;
+        BKP_USER_REGISTER6 = 0;
+
         /* cia reikia sukonfiguruoti BKP registrus - irasyti defoltinius datetime */
         datetime.Config = 0;
         datetime.Seconds = 0;
-        datetime.Minutes = 0;
-        datetime.Hours = 0;
-        datetime.WeekDay = 3;
-        datetime.Day = 1;
-        datetime.Month = 0;
+        datetime.Minutes = 40;
+        datetime.Hours = 22;
+        datetime.WeekDay = 4;
+        datetime.Day = 6;
+        datetime.Month = 1;
         datetime.Year = 20;
         datetime.IsLeapYear = 1;
+
+        sys_status.wtime = 0;
 
         BKP_USER_REGISTER1 = MAKE_INT16(0xA5, datetime.Config);
 
@@ -102,13 +114,15 @@ void rtc_init(void)
     datetime.Year = (uint8_t)(BKP_USER_REGISTER2&0x007F);
     datetime.IsLeapYear = (uint8_t)((BKP_USER_REGISTER2&0x0080)>>7);
 
+    sys_status.wtime = BKP_USER_REGISTER5;
+
     uint32_t tmp = rtc_get_counter_val();
 
     while(tmp >= 86400){
 
         tmp -= 86400;
 
-        cal_date_process(); // pakoreguojam datatime vienai dienai pagal kounteri
+        cal_date_update(); // pakoreguojam datatime vienai dienai pagal kounteri
     }
 
 
@@ -116,7 +130,7 @@ void rtc_init(void)
     o minutemis??? */
     while(tmp--){
 
-        cal_time_process(); // pakoreguojam datatime vienai sekundei pagal kounteri
+        cal_time_update(); // pakoreguojam datatime vienai sekundei pagal kounteri
     }
 
 

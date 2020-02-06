@@ -17,14 +17,14 @@
 #include "tim.h"
 #include "usart.h"
 #include "rtc.h"
+#include "adc.h"
+
+
 #include "calendar.h"
-
-
 #include "e24lcxx.h"
 
 /* duomenu struktura, kuri sudarys kintamuju aplinka ir kuri bus saugoma EEPROM'e */
 static struct _sys_env{
-    struct _dt*         pdt;
     struct _conf*       porta_config;
     struct _conf*       portb_config;
 }sys_env;
@@ -101,9 +101,10 @@ void main_task(void *args)
 
             gpio_toggle(GPIOC, GPIO13);
 
-            cal_time_process();
+            cal_time_update();
 
             UpdateDateTimeRequired = false;
+
         }
 
 		taskYIELD();
@@ -154,10 +155,10 @@ int main(void)
     gpio_init();
     rtc_init();
     usart_init();
+    adc_init();
 
 
     /*  */
-    sys_env.pdt = &datetime;
     sys_env.porta_config = &(PortA->config);
     sys_env.portb_config = &(PortB->config);
 
