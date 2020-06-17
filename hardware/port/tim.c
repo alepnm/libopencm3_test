@@ -1,5 +1,4 @@
 
-#include "globals.h"
 #include "tim.h"
 
 volatile uint32_t systick = 0;

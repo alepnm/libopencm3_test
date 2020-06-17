@@ -38,7 +38,8 @@ void adc_init(void)
 
 	adc_reset_calibration(ADC1);
 
-	adc_calibrate(ADC1);
+	//adc_calibration(ADC1);
+	adc_calibrate_async(ADC1);
 }
 
 
