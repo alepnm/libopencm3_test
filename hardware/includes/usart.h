@@ -29,6 +29,7 @@ extern const uint32_t baud[];
 typedef struct{
 
     uint32_t        usart;
+    uint8_t         port_id;
 
     struct _conf{
         uint8_t     enable      :1;

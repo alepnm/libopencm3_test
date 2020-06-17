@@ -1,6 +1,10 @@
 
 #include "tim.h"
 
+#define tim1_isr TIM1_IRQHandler
+#define tim2_isr TIM2_IRQHandler
+#define tim3_isr TIM3_IRQHandler
+
 volatile uint32_t systick = 0;
 
 
@@ -12,7 +16,7 @@ void tim2_init(void)
 
 	timer_set_mode(TIM2, TIM_CR1_CKD_CK_INT, TIM_CR1_CMS_EDGE, TIM_CR1_DIR_UP);
 	timer_set_prescaler(TIM2, 72);
-    timer_set_period(TIM2, 986);    // 1ms periodas
+    timer_set_period(TIM2, 999);    // 1ms periodas
 
 	timer_enable_counter(TIM2);
 
@@ -32,3 +36,18 @@ void tim2_isr(void)
 		//gpio_toggle(GPIOC, GPIO13);
 	}
 }
+
+
+/* us taimeris */
+void tim3_init(void)
+{
+	rcc_periph_clock_enable(RCC_TIM3);
+	rcc_periph_reset_pulse(RST_TIM3);
+
+	timer_set_mode(TIM3, TIM_CR1_CKD_CK_INT, TIM_CR1_CMS_EDGE, TIM_CR1_DIR_UP);
+	timer_set_prescaler(TIM3, 72);
+    timer_set_period(TIM3, 99);
+
+	timer_enable_counter(TIM3);
+}
+

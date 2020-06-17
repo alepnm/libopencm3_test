@@ -63,6 +63,7 @@ static void usart_hw_init(uint32_t usart)
 void usart_init(void)
 {
     PortA->usart = USART1;
+    PortA->port_id = PRIMARY_PORT;
 
     PortA->config.enable = STATE_DISABLED;
     PortA->config.bdidx = 1;
@@ -76,9 +77,10 @@ void usart_init(void)
 
     usart_hw_init(PortA->usart);
 
-    usart_config( PRIMARY_PORT, BR19200, 8, USART_PARITY_NONE );
+    usart_config( PortA->port_id, BR19200, 8, USART_PARITY_NONE );
 
     PortB->usart = USART2;
+    PortB->port_id = SECONDARY_PORT;
 
     PortB->config.enable = STATE_DISABLED;
     PortB->config.bdidx = 1;
@@ -92,7 +94,7 @@ void usart_init(void)
 
     usart_hw_init(PortB->usart);
 
-    usart_config( SECONDARY_PORT, BR19200, 8, USART_PARITY_NONE );
+    usart_config( PortB->port_id, BR19200, 8, USART_PARITY_NONE );
 }
 
 
@@ -136,7 +138,7 @@ uint8_t usart_config( uint8_t port, uint8_t baudrate, uint8_t databits, uint32_t
 /*  */
 void usart_port_handler( usart_port_t* port ){
 
-    char tmp;
+    char tmp = 0;
 
     /* siunciam is TxQueue kol eile netuscia */
     while( uxQueueMessagesWaiting(port->TxQueue) ){
@@ -175,12 +177,7 @@ void usart_porttimer_handler( usart_port_t* port ){
 
 
 
-void nextion_cmd(void){
-
-
-
-
-}
+void nextion_cmd(void){}
 
 
 

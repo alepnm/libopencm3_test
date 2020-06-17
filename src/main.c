@@ -99,13 +99,17 @@ void main_task(void *args)
 
         if(UpdateDateTimeRequired){
 
-            gpio_toggle(GPIOC, GPIO13);
+            //gpio_toggle(GPIOC, GPIO13);
 
             cal_time_update();
 
             UpdateDateTimeRequired = false;
 
         }
+
+        gpio_clear(GPIOC, GPIO13);
+        delay_us(20);
+        gpio_set(GPIOC, GPIO13);
 
 		taskYIELD();
 	}
@@ -115,7 +119,7 @@ void main_task(void *args)
 /*  */
 void SendToQueue( QueueHandle_t que, char* data, uint8_t len ){
 
-    while(len){
+    while(len--){
 
         while(uxQueueSpacesAvailable(que) == 0) portYIELD();
 
@@ -123,8 +127,6 @@ void SendToQueue( QueueHandle_t que, char* data, uint8_t len ){
         {
             /* Failed to post the message, even after 10 ticks. */
         }
-
-        len--;
     }
 }
 
@@ -133,15 +135,11 @@ void SendToQueue( QueueHandle_t que, char* data, uint8_t len ){
 /*  */
 void SendStringToQueue( QueueHandle_t que, char* data ){
 
-    while(*data){
+    uint16_t len = 0;
 
-        while(uxQueueSpacesAvailable(que) == 0) portYIELD();
+    while(*data) len++;
 
-        if( xQueueSend( que, data++, (TickType_t)10 ) != pdPASS )
-        {
-            /* Failed to post the message, even after 10 ticks. */
-        }
-    }
+    SendToQueue( que, data, len );
 }
 
 
@@ -156,6 +154,7 @@ int main(void)
     rtc_init();
     usart_init();
     adc_init();
+    tim3_init();
 
 
     /*  */
@@ -176,8 +175,6 @@ void vApplicationTickHook( void ){
 
     usart_porttimer_handler( PortA );
     usart_porttimer_handler( PortB );
-
-
 }
 
 
